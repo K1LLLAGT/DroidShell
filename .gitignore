@@ -1,4 +1,142 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# DroidShell Platform — Canonical .gitignore
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-# Android build artifacts
-source/DroidShell/app/build/
-source/DroidShell/.gradle/
+# ------------------------------
+# Build artifacts (root/non-root)
+# ------------------------------
+out/
+*.zip
+*.apk
+*.img
+*.tar
+*.tar.gz
+*.tgz
+
+# OTA signatures + metadata outputs
+OTA.SHA256
+*.sig
+
+# ------------------------------
+# OTA server artifacts
+# ------------------------------
+ota/*.zip
+ota/*.img
+ota/*.tar
+ota/*.bin
+
+# Keep metadata + channels
+!ota/metadata.json
+!ota/index.json
+!ota/channels/
+!ota/channels/*.json
+
+# ------------------------------
+# Magisk module build outputs
+# ------------------------------
+magisk-droidshell/*.zip
+magisk-droidshell/out/
+magisk-droidshell/build/
+magisk-droidshell/.temp/
+
+# ------------------------------
+# Logs
+# ------------------------------
+logs/
+*.log
+
+# ------------------------------
+# Temp + cache
+# ------------------------------
+*.tmp
+*.temp
+*.bak
+*.old
+*.swp
+*.swo
+*.lock
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Node cache (if used later)
+node_modules/
+npm-debug.log
+
+# ------------------------------
+# Termux / Android junk
+# ------------------------------
+*.termux-backup
+storage/
+cache/
+.DS_Store
+
+# ------------------------------
+# Editor junk
+# ------------------------------
+*.kate-swp
+*.vscode/
+*.idea/
+*.iml
+
+# ------------------------------
+# Desktop companion build outputs
+# ------------------------------
+desktop/dist/
+desktop/build/
+desktop/node_modules/
+
+# ------------------------------
+# Plugin runtime artifacts
+# ------------------------------
+plugins/*/permissions
+plugins/*/cache/
+plugins/*/tmp/
+
+# ------------------------------
+# Keep all source directories
+# ------------------------------
+!scripts/
+!web/
+!registry/
+!sdk/
+!runtime/
+!sync/
+!desktop/
+!plugins/
+!magisk-droidshell/
+!ota/
+!out/
+
+# Keep all scripts
+!scripts/*.sh
+
+# Keep web assets
+!web/**/*.html
+!web/**/*.js
+!web/**/*.css
+!web/**/*.json
+
+# Keep registry metadata
+!registry/index.json
+!registry/packages/
+
+# Keep SDK templates
+!sdk/**
+
+# Keep plugin manifests
+!plugins/*/manifest.json
+!plugins/*/plugin.sh
+
+# Keep runtime + sync scripts
+!runtime/**
+!sync/**
+!desktop/**
+
+# Keep GitHub workflows
+!.github/
+!.github/workflows/*.yml
+
+# Keep version file
+!VERSION
