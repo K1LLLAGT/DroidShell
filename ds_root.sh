@@ -219,3 +219,32 @@ if command -v ds_widget_battery >/dev/null 2>&1; then
     esac
   }
 fi
+
+# DS_ENGINEERING_MODE_MENU
+root_eng_menu() {
+  clear
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  echo " DroidShell · Engineering Mode"
+  echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  echo
+  BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  ENGCTL="$BASE_DIR/scripts/ds-engctl.sh"
+  if [ -x "$ENGCTL" ]; then
+    echo "Current:"
+    "$ENGCTL" status
+  else
+    echo "Engineering controller not found."
+  fi
+  echo
+  echo " [1] Enable Engineering Mode"
+  echo " [2] Disable Engineering Mode"
+  echo " [b] Back"
+  echo
+  read -r -p "Choice: " ans
+  case "$ans" in
+    1) "$ENGCTL" on;  sleep 1; root_eng_menu ;;
+    2) "$ENGCTL" off; sleep 1; root_eng_menu ;;
+    b|B) root_main_menu ;;
+    *)   root_eng_menu ;;
+  esac
+}

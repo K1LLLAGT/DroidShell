@@ -1,6 +1,6 @@
 id=droidshell
-name=DroidShell Root Tools
+name=DroidShell System Diagnostic Layer
 version=1.0.0
 versionCode=1
 author=Greg
-description=DroidShell root toolkit integration as a Magisk module.
+description=DroidShell as a Magisk-based system diagnostic layer with overlays and boot-time services.
