@@ -1,35 +1,29 @@
 #!/usr/bin/env bash
-set -e
+# Create a release tarball of DroidShell.
 
-OUT="release-out"
-TS=$(date +%Y%m%d-%H%M%S)
-NAME="DroidShell-release-$TS.zip"
+set -euo pipefail
 
+ROOT="$HOME/DroidShell"
+OUT="$ROOT/out"
 mkdir -p "$OUT"
-TMP="$OUT/tmp"
-rm -rf "$TMP"
-mkdir -p "$TMP"
 
-echo "[DroidShell] Collecting release payload..."
+version="${1:-}"
+if [ -z "$version" ]; then
+  version="$(date +%Y%m%d-%H%M%S)"
+fi
 
-copy_dir() {
-    [ -d "$1" ] && cp -a "$1" "$TMP/" || echo "[REL] Missing: $1"
-}
+archive="$OUT/droidshell-release-$version.tar.gz"
 
-copy_dir "$HOME/.droidshell"
-copy_dir "$HOME/.termux"
-copy_dir docs
-copy_dir site
-copy_dir plugin-sdk
-copy_dir plugin-template
+echo "[RELEASE] Building docs and graphs..."
+bash "$ROOT/scripts/ds-make.sh" all
 
-# Include all orchestrator scripts
-cp ds-* "$TMP/" 2>/dev/null || true
+echo "[RELEASE] Creating archive: $archive"
+tar -czf "$archive" -C "$ROOT" \
+  scripts \
+  docs \
+  registry/graphs \
+  site \
+  GIT-SUMMARY.* \
+  README.*
 
-cd "$TMP"
-zip -r "../$NAME" . >/dev/null
-cd -
-
-rm -rf "$TMP"
-
-echo "[DroidShell] Release ZIP created: $OUT/$NAME"
+echo "[RELEASE] Done: $archive"

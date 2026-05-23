@@ -38,6 +38,7 @@ digraph droidshell_modules {
   "ds-dist-import.sh";
   "ds-dist-preset.sh";
   "ds-dist-profile.sh";
+  "ds-docs-index.sh";
   "ds-docs-init.sh";
   "ds-docs-site.sh";
   "ds-doctor.sh";
@@ -53,6 +54,7 @@ digraph droidshell_modules {
   "ds-fix-everything.sh";
   "ds-full-update-system.sh";
   "ds-generate-advanced-suite.sh";
+  "ds-generate-devops-suite.sh";
   "ds-generate-docs-suite.sh";
   "ds-generate-docs-tools-suite.sh";
   "ds-generate-fix-suite.sh";
@@ -66,6 +68,7 @@ digraph droidshell_modules {
   "ds-generate-next-tier-suite.sh";
   "ds-github-secrets.sh";
   "ds-gradle-build.sh";
+  "ds-graphs-refresh.sh";
   "ds-health.sh";
   "ds-install-universal.sh";
   "ds-install.sh";
@@ -84,6 +87,7 @@ digraph droidshell_modules {
   "ds-logging.sh";
   "ds-magisk-full.sh";
   "ds-magisk-update-sync.sh";
+  "ds-make.sh";
   "ds-manpages-generate.sh";
   "ds-market.sh";
   "ds-metrics.sh";
@@ -164,6 +168,7 @@ digraph droidshell_modules {
   "ds-setup.sh";
   "ds-sign-packages.sh";
   "ds-site-build.sh";
+  "ds-site-rebuild.sh";
   "ds-site.sh";
   "ds-sync.sh";
   "ds-telemetry-log.sh";
