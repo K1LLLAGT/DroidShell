@@ -1,3 +1,0 @@
-DROIDSHELL – GIT CHANGE SUMMARY
-===============================
-(See generator for details; this is a stage-0 bootstrap summary placeholder.)
