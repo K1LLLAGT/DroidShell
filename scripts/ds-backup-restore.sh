@@ -2,7 +2,7 @@
 set -e
 
 CMD="$1"
-BACKUP_DIR="$HOME/.droidshell-backups"
+BACKUP_DIR="$HOME/.ds-backups"
 TS=$(date +"%Y%m%d-%H%M%S")
 
 mkdir -p "$BACKUP_DIR"
@@ -13,7 +13,7 @@ backup() {
 
     echo "[DroidShell] Backing up configs to $DEST"
 
-    cp -a "$HOME/.droidshell-startup" "$DEST/" 2>/dev/null || true
+    cp -a "$HOME/.ds-startup" "$DEST/" 2>/dev/null || true
     cp -a "$HOME/.droidshell" "$DEST/" 2>/dev/null || true
     cp -a "$HOME/.droidshell/plugins" "$DEST/" 2>/dev/null || true
     cp -a "$HOME/.termux/colors.properties" "$DEST/" 2>/dev/null || true
@@ -25,7 +25,7 @@ backup() {
 restore() {
     SRC="$2"
     if [ -z "$SRC" ]; then
-        echo "[DroidShell] Usage: ./droidshell-backup-restore.sh restore <backup-folder>"
+        echo "[DroidShell] Usage: ./ds-backup-restore.sh restore <backup-folder>"
         exit 1
     fi
 
@@ -36,7 +36,7 @@ restore() {
 
     echo "[DroidShell] Restoring from $SRC"
 
-    cp -a "$SRC/.droidshell-startup" "$HOME/" 2>/dev/null || true
+    cp -a "$SRC/.ds-startup" "$HOME/" 2>/dev/null || true
     cp -a "$SRC/.droidshell" "$HOME/" 2>/dev/null || true
     cp -a "$SRC/plugins" "$HOME/.droidshell/" 2>/dev/null || true
     cp -a "$SRC/colors.properties" "$HOME/.termux/" 2>/dev/null || true
@@ -50,8 +50,8 @@ case "$CMD" in
     restore) restore "$@" ;;
     *)
         echo "[DroidShell] Usage:"
-        echo "  ./droidshell-backup-restore.sh backup"
-        echo "  ./droidshell-backup-restore.sh restore <backup-folder>"
+        echo "  ./ds-backup-restore.sh backup"
+        echo "  ./ds-backup-restore.sh restore <backup-folder>"
         exit 1
         ;;
 esac

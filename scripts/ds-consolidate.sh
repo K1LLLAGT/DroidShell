@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 set -e
 
-ROOT="$HOME/DroidShell-Build"
+ROOT="$HOME/DS-Build"
 SRC="$ROOT/source"
 SCRIPTS="$ROOT/scripts"
 
@@ -18,18 +18,18 @@ fi
 echo "[DroidShell] Moving scripts → $SCRIPTS"
 for f in $HOME/*.sh; do
     case "$f" in
-        *droidshell-*|*ds-*)
+        *ds-*|*ds-*)
             mv "$f" "$SCRIPTS/"
             ;;
     esac
 done
 
-# Move docs, site, sdk-out, release-out, droidshell-out
+# Move docs, site, sdk-out, release-out, ds-out
 [ -d "$HOME/docs" ] && mv "$HOME/docs" "$ROOT/docs"
 [ -d "$HOME/site" ] && mv "$HOME/site" "$ROOT/site"
 [ -d "$HOME/sdk-out" ] && mv "$HOME/sdk-out" "$ROOT/sdk-out"
 [ -d "$HOME/release-out" ] && mv "$HOME/release-out" "$ROOT/release-out"
-[ -d "$HOME/droidshell-out" ] && mv "$HOME/droidshell-out" "$ROOT/droidshell-out"
+[ -d "$HOME/ds-out" ] && mv "$HOME/ds-out" "$ROOT/ds-out"
 
 # Workspace
 mkdir -p "$ROOT/workspace"

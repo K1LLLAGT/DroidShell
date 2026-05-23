@@ -3,7 +3,7 @@ set -e
 
 REL_DIR="$PWD/release-out"
 TS=$(date +%Y%m%d-%H%M%S)
-ZIP_NAME="DroidShell-release-$TS.zip"
+ZIP_NAME="DS-release-$TS.zip"
 
 mkdir -p "$REL_DIR"
 TMP="$REL_DIR/release-tmp"
@@ -13,15 +13,15 @@ mkdir -p "$TMP"
 echo "[DroidShell] Collecting release payload..."
 
 # Device-side config and tools
-[ -d "$HOME/.droidshell" ] && cp -a "$HOME/.droidshell" "$TMP/droidshell-config" || echo "[REL] .droidshell missing"
+[ -d "$HOME/.droidshell" ] && cp -a "$HOME/.droidshell" "$TMP/ds-config" || echo "[REL] .droidshell missing"
 [ -d "$HOME/.termux" ] && cp -a "$HOME/.termux" "$TMP/termux-config" || echo "[REL] .termux missing"
 
 # Project-side docs and scripts (if present)
 [ -d docs ] && cp -a docs "$TMP/docs" || true
 [ -d site ] && cp -a site "$TMP/site" || true
-[ -f droidshell-tools-init.sh ] && cp droidshell-tools-init.sh "$TMP/" || true
-[ -f droidshell-etc-init.sh ] && cp droidshell-etc-init.sh "$TMP/" || true
-[ -f droidshell-plugin-template.sh ] && cp droidshell-plugin-template.sh "$TMP/" || true
+[ -f ds-tools-init.sh ] && cp ds-tools-init.sh "$TMP/" || true
+[ -f ds-etc-init.sh ] && cp ds-etc-init.sh "$TMP/" || true
+[ -f ds-plugin-template.sh ] && cp ds-plugin-template.sh "$TMP/" || true
 
 cd "$TMP"
 zip -r "../$ZIP_NAME" . >/dev/null

@@ -5,7 +5,7 @@ DOCS="docs"
 SITE="site"
 
 if [ ! -d "$DOCS" ]; then
-    echo "[DroidShell] docs/ not found. Run droidshell-docs-init.sh first."
+    echo "[DroidShell] docs/ not found. Run ds-docs-init.sh first."
     exit 1
 fi
 

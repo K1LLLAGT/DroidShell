@@ -13,7 +13,7 @@ mkdir -p "$BASE/colors" \
          "$BASE/logs"
 
 # Colors
-cat > "$BASE/colors/droidshell-dark.conf" << 'EOCOL'
+cat > "$BASE/colors/ds-dark.conf" << 'EOCOL'
 background=#0D0D0D
 foreground=#E0E0E0
 cursor=#00FF66
@@ -26,7 +26,7 @@ cat > "$BASE/keys/extra-keys.conf" << 'EOKEY'
 EOKEY
 
 # Shell profile
-cat > "$BASE/profile/droidshell-profile.sh" << 'EOPROF'
+cat > "$BASE/profile/ds-profile.sh" << 'EOPROF'
 export PATH="$HOME/bin:$PATH"
 alias ll='ls -alF'
 alias gs='git status'
@@ -34,9 +34,9 @@ EOPROF
 
 # System defaults
 cat > "$BASE/system/defaults.conf" << 'EOSYS'
-theme=droidshell-dark
+theme=ds-dark
 extra_keys=enabled
-startup_script=~/.droidshell-startup
+startup_script=~/.ds-startup
 EOSYS
 
 # MOTD

@@ -2,7 +2,7 @@
 set -e
 
 OUT_DIR="$PWD/sdk-out"
-SDK_NAME="DroidShell-SDK-$(date +%Y%m%d).zip"
+SDK_NAME="DS-SDK-$(date +%Y%m%d).zip"
 
 mkdir -p "$OUT_DIR"
 TMP="$OUT_DIR/sdk-tmp"

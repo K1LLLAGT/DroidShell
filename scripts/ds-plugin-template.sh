@@ -59,7 +59,7 @@ Produces:
 
 ## Install
 Use:
-    droidshell-plugin-deploy.sh out/MyPlugin.jar
+    ds-plugin-deploy.sh out/MyPlugin.jar
 EOREAD
 
 echo "[DroidShell] Plugin template created."

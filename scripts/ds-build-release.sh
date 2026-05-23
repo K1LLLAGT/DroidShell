@@ -2,8 +2,8 @@
 set -e
 
 REPO="DroidShell"
-OUT="../droidshell-out"
-KEYSTORE="$OUT/droidshell-release.keystore"
+OUT="../ds-out"
+KEYSTORE="$OUT/ds-release.keystore"
 ALIAS="droidshell"
 PASS="droidshellpass"
 
@@ -34,7 +34,7 @@ if [ ! -f "$KEYSTORE" ]; then
 fi
 
 APK_RELEASE="app/build/outputs/apk/release/app-release-unsigned.apk"
-APK_SIGNED="$OUT/droidshell-release-signed.apk"
+APK_SIGNED="$OUT/ds-release-signed.apk"
 
 echo "[DroidShell] Signing release APK..."
 apksigner sign \

@@ -12,7 +12,7 @@ mkdir -p "$DS_CONFIG_DIR" "$DS_PLUGIN_DIR"
 
 # ---------- Startup Script ----------
 echo "[DroidShell] Writing startup script..."
-cat > "$DS_HOME/.droidshell-startup" << 'EOSTART'
+cat > "$DS_HOME/.ds-startup" << 'EOSTART'
 echo "=== DroidShell Startup ==="
 echo "Initializing environment..."
 
@@ -26,7 +26,7 @@ alias gs='git status'
 echo "DroidShell ready."
 EOSTART
 
-chmod +x "$DS_HOME/.droidshell-startup"
+chmod +x "$DS_HOME/.ds-startup"
 
 # ---------- Color Scheme ----------
 echo "[DroidShell] Writing color scheme..."
@@ -136,14 +136,14 @@ DroidShell Setup Summary
 ------------------------
 
 Created:
-- ~/.droidshell-startup      : startup script run by DroidShell on launch
+- ~/.ds-startup      : startup script run by DroidShell on launch
 - ~/.termux/colors.properties: DroidShell dark color scheme
 - ~/.termux/termux.properties: extra keys + basic settings
 - ~/.droidshell/plugins/     : plugin source stubs (SystemInfo, Calc)
 
 Next:
 - Integrate plugin loader in the DroidShell app (DexClassLoader)
-- Point DroidShell to use .droidshell-startup and this config set
+- Point DroidShell to use .ds-startup and this config set
 EOREAD
 
 echo "[DroidShell] Setup complete."

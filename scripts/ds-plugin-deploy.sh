@@ -6,7 +6,7 @@ DEST="$HOME/.droidshell/plugins"
 REG="$HOME/.droidshell/etc/plugins/registry.txt"
 
 if [ -z "$PLUGIN" ]; then
-    echo "[DroidShell] Usage: ./droidshell-plugin-deploy.sh <plugin.jar>"
+    echo "[DroidShell] Usage: ./ds-plugin-deploy.sh <plugin.jar>"
     exit 1
 fi
 
