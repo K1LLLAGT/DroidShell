@@ -1,0 +1,85 @@
+name: DroidShell Auto Publish
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-sign-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: 17
+
+    - name: Make Gradle executable
+      run: chmod +x ./source/DroidShell/gradlew
+
+    - name: Build Release APK
+      working-directory: source/DroidShell
+      run: ./gradlew :app:assembleRelease
+
+    - name: Sign APK
+      uses: r0adkll/sign-android-release@v1
+      with:
+        releaseDirectory: source/DroidShell/app/build/outputs/apk/release
+        signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        alias: ${{ secrets.ANDROID_KEY_ALIAS }}
+        keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        keyPassword: ${{ secrets.ANDROID_KEY_PASSWORD }}
+
+    - name: Extract current version
+      id: version
+      run: |
+        FILE="source/DroidShell/app/build.gradle"
+        VER=$(grep versionName $FILE | sed 's/[^0-9.]//g')
+        echo "current=$VER" >> $GITHUB_OUTPUT
+
+    - name: Bump patch version
+      id: bump
+      run: |
+        OLD=${{ steps.version.outputs.current }}
+        IFS='.' read -r MAJ MIN PAT <<< "$OLD"
+        NEW="$MAJ.$MIN.$((PAT+1))"
+        FILE="source/DroidShell/app/build.gradle"
+        sed -i "s/versionName \".*\"/versionName \"$NEW\"/" $FILE
+        echo "new=$NEW" >> $GITHUB_OUTPUT
+
+    - name: Commit version bump
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add source/DroidShell/app/build.gradle
+        git commit -m "Bump version to ${{ steps.bump.outputs.new }}"
+        git push
+
+    - name: Create Git Tag
+      run: |
+        TAG="v${{ steps.bump.outputs.new }}"
+        git tag $TAG
+        git push origin $TAG
+
+    - name: Generate Release Notes
+      id: notes
+      run: |
+        NOTES=$(git log -1 --pretty=format:"%s%n%n%b")
+        echo "notes=$NOTES" >> $GITHUB_OUTPUT
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: v${{ steps.bump.outputs.new }}
+        name: DroidShell v${{ steps.bump.outputs.new }}
+        body: ${{ steps.notes.outputs.notes }}
+        files: |
+          source/DroidShell/app/build/outputs/apk/release/*.apk
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
