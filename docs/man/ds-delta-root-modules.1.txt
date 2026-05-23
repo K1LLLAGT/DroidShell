@@ -1,0 +1,16 @@
+ds-delta-root-modules(1)                    DroidShell Manual                    ds-delta-root-modules(1)
+
+NAME
+    ds-delta-root-modules - DroidShell module
+
+SYNOPSIS
+    ds-delta-root-modules.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-delta-root-modules.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

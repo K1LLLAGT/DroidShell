@@ -1,0 +1,16 @@
+ds-ota-metadata(1)                    DroidShell Manual                    ds-ota-metadata(1)
+
+NAME
+    ds-ota-metadata - DroidShell module
+
+SYNOPSIS
+    ds-ota-metadata.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-ota-metadata.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

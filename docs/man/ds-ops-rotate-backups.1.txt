@@ -1,0 +1,16 @@
+ds-ops-rotate-backups(1)                    DroidShell Manual                    ds-ops-rotate-backups(1)
+
+NAME
+    ds-ops-rotate-backups - DroidShell module
+
+SYNOPSIS
+    ds-ops-rotate-backups.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-ops-rotate-backups.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

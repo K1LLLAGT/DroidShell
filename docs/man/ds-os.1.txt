@@ -1,0 +1,17 @@
+ds-os(1)                    DroidShell Manual                    ds-os(1)
+
+NAME
+    ds-os - DroidShell module
+
+SYNOPSIS
+    ds-os.sh [options] ...
+
+DESCRIPTION
+    ds-os.sh — host entrypoint for DroidShell OS API (stub)
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-os.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

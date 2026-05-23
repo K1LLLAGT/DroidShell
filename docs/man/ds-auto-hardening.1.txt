@@ -1,0 +1,16 @@
+ds-auto-hardening(1)                    DroidShell Manual                    ds-auto-hardening(1)
+
+NAME
+    ds-auto-hardening - DroidShell module
+
+SYNOPSIS
+    ds-auto-hardening.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-auto-hardening.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+
