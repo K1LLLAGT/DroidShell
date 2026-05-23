@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DroidShell Registry</title>
+  <style>
+    body { font-family: sans-serif; background: #111; color: #eee; padding: 1rem; }
+    h1 { color: #6cf; }
+    .pkg { border: 1px solid #444; padding: 0.5rem 1rem; margin-bottom: 0.5rem; border-radius: 4px; }
+    code { color: #9f9; }
+  </style>
+</head>
+<body>
+  <h1>DroidShell Package Registry</h1>
+  <div id="list">Loading...</div>
+  <script>
+    fetch('../../registry/index.json')
+      .then(r => r.json())
+      .then(j => {
+        const list = document.getElementById('list');
+        list.innerHTML = '';
+        if (!j.packages || !j.packages.length) {
+          list.textContent = 'No packages registered.';
+          return;
+        }
+        j.packages.forEach(p => {
+          const div = document.createElement('div');
+          div.className = 'pkg';
+          div.innerHTML = '<strong>' + p.name + '</strong><br><code>' + p.file + '</code>';
+          list.appendChild(div);
+        });
+      })
+      .catch(e => {
+        document.getElementById('list').textContent = 'Error loading registry: ' + e;
+      });
+  </script>
+</body>
+</html>

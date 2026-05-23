@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 # ds-qr-installer.sh
-# Generates a QR code that installs the latest APK.
+# Generate a QR code for a universal install command.
 
 set -euo pipefail
 
-REPO="K1LLLAGT/DroidShell"
-API_URL="https://api.github.com/repos/$REPO/releases/latest"
-
-APK_URL=$(curl -s $API_URL | grep browser_download_url | grep .apk | cut -d '"' -f 4)
-
-if [ -z "$APK_URL" ]; then
-  echo "[!] No APK found."
+if ! command -v qrencode >/dev/null 2>&1; then
+  echo "[!] qrencode not installed. Install: pkg install qrencode"
   exit 1
 fi
 
-echo "[+] Generating QR code..."
-echo "$APK_URL" | qrencode -o droidshell-latest.png
+# This URL should point to a hosted copy of ds-install-universal.sh
+INSTALL_URL="${1:-https://github.com/K1LLLAGT/DroidShell/raw/main/scripts/ds-install-universal.sh}"
 
-echo "[✓] QR code saved as droidshell-latest.png"
+CMD="curl -sSL \"$INSTALL_URL\" -o ds-install-universal.sh && chmod +x ds-install-universal.sh && ./ds-install-universal.sh"
+
+echo "[+] Command encoded in QR:"
+echo "    $CMD"
+echo
+qrencode -t ANSIUTF8 "$CMD"
