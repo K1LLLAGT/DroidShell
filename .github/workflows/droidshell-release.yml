@@ -1,0 +1,74 @@
+name: DroidShell Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "Release channel (stable/beta/dev)"
+        required: true
+        default: "stable"
+      bump:
+        description: "Version bump (none/patch/minor/major)"
+        required: true
+        default: "patch"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bump version
+        run: |
+          chmod +x scripts/ds-version.sh || true
+          case "${{ github.event.inputs.bump }}" in
+            major|minor|patch)
+              ./scripts/ds-version.sh "${{ github.event.inputs.bump }}"
+              ;;
+            none)
+              echo "No bump requested."
+              ;;
+          esac
+          echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
+
+      - name: Build dual packages
+        run: |
+          if [ -x scripts/ds-build-dual.sh ]; then
+            ./scripts/ds-build-dual.sh
+          fi
+
+      - name: Build Magisk module
+        run: |
+          if [ -x scripts/build-magisk-droidshell.sh ]; then
+            ./scripts/build-magisk-droidshell.sh
+          fi
+
+      - name: Sign packages
+        run: |
+          if [ -x scripts/ds-sign-packages.sh ]; then
+            ./scripts/ds-sign-packages.sh
+          fi
+
+      - name: Update OTA metadata
+        run: |
+          if [ -x scripts/ds-ota-metadata.sh ]; then
+            ./scripts/ds-ota-metadata.sh
+          fi
+
+      - name: Generate changelog
+        run: |
+          git log -10 --pretty=format:'- %s' > CHANGELOG.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "v${{ env.VERSION }}-${{ github.event.inputs.channel }}"
+          name: "DroidShell v${{ env.VERSION }} [${{ github.event.inputs.channel }}]"
+          body_path: CHANGELOG.md
+          files: |
+            out/droidshell-root.zip
+            out/droidshell-nonroot.zip
+            out/droidshell-magisk-*.zip
+            ota/metadata.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -12,10 +12,3 @@ chmod 755 /data/local/tmp/droidshell
 # /data/local/tmp/droidshell/api.sh &
 
 log -t droidshell "DroidShell Magisk service finished init."
-
-# DS_ENGINEERING_MODE_BOOT
-CONF="$MODDIR/system/etc/droidshell-debug.conf"
-if [ -f "$CONF" ]; then
-  EMODE="$(grep '^enable_extended_logging=' "$CONF" 2>/dev/null | cut -d'=' -f2-)"
-  log -t droidshell "Engineering Mode at boot: $EMODE"
-fi
