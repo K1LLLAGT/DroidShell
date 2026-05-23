@@ -1,0 +1,30 @@
+name: Nightly Build
+
+on:
+  schedule:
+    - cron: "0 3 * * *"   # 3 AM UTC nightly
+  workflow_dispatch:
+
+jobs:
+  nightly:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: 17
+
+    - name: Build Release APK
+      working-directory: source/DroidShell
+      run: ./gradlew :app:assembleRelease
+
+    - name: Upload Nightly Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: droidshell-nightly
+        path: source/DroidShell/app/build/outputs/apk/release/*.apk

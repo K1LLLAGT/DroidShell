@@ -1,0 +1,16 @@
+ds-tui(1)                    DroidShell Manual                    ds-tui(1)
+
+NAME
+    ds-tui - DroidShell module
+
+SYNOPSIS
+    ds-tui.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-tui.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

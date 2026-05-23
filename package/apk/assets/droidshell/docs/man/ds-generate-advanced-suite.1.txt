@@ -1,0 +1,17 @@
+ds-generate-advanced-suite(1)                    DroidShell Manual                    ds-generate-advanced-suite(1)
+
+NAME
+    ds-generate-advanced-suite - DroidShell module
+
+SYNOPSIS
+    ds-generate-advanced-suite.sh [options] ...
+
+DESCRIPTION
+    Advanced Maintenance Suite Generator
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-generate-advanced-suite.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

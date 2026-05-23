@@ -1,0 +1,17 @@
+ds-install(1)                    DroidShell Manual                    ds-install(1)
+
+NAME
+    ds-install - DroidShell module
+
+SYNOPSIS
+    ds-install.sh [options] ...
+
+DESCRIPTION
+    ds-install.sh — one‑command installer for DroidShell OS APK
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-install.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

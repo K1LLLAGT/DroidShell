@@ -1,0 +1,16 @@
+ds-fix-all-three(1)                    DroidShell Manual                    ds-fix-all-three(1)
+
+NAME
+    ds-fix-all-three - DroidShell module
+
+SYNOPSIS
+    ds-fix-all-three.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-fix-all-three.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

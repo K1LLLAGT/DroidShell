@@ -1,0 +1,16 @@
+ds-fix-all-four(1)                    DroidShell Manual                    ds-fix-all-four(1)
+
+NAME
+    ds-fix-all-four - DroidShell module
+
+SYNOPSIS
+    ds-fix-all-four.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-fix-all-four.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

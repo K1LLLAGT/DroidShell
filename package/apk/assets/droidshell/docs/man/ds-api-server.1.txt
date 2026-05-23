@@ -1,0 +1,16 @@
+ds-api-server(1)                    DroidShell Manual                    ds-api-server(1)
+
+NAME
+    ds-api-server - DroidShell module
+
+SYNOPSIS
+    ds-api-server.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-api-server.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

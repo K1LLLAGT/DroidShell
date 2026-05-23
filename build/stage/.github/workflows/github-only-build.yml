@@ -1,0 +1,33 @@
+name: DroidShell CI Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: 17
+
+    - name: Make Gradle executable
+      run: chmod +x ./source/DroidShell/gradlew
+
+    - name: Build Release APK
+      working-directory: source/DroidShell
+      run: ./gradlew :app:assembleRelease
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: droidshell-release
+        path: source/DroidShell/app/build/outputs/apk/release/*.apk

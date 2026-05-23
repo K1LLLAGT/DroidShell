@@ -1,0 +1,16 @@
+ds-check(1)                    DroidShell Manual                    ds-check(1)
+
+NAME
+    ds-check - DroidShell module
+
+SYNOPSIS
+    ds-check.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-check.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

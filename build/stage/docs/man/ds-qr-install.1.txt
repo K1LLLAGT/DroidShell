@@ -1,0 +1,17 @@
+ds-qr-install(1)                    DroidShell Manual                    ds-qr-install(1)
+
+NAME
+    ds-qr-install - DroidShell module
+
+SYNOPSIS
+    ds-qr-install.sh [options] ...
+
+DESCRIPTION
+    ds-qr-install.sh — wireless QR installer for DroidShell APK
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-qr-install.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

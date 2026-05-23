@@ -1,0 +1,19 @@
+ds-plugin-loader(1)                    DroidShell Manual                    ds-plugin-loader(1)
+
+NAME
+    ds-plugin-loader - DroidShell module
+
+SYNOPSIS
+    ds-plugin-loader.sh [options] ...
+
+DESCRIPTION
+    DroidShell :: scripts/ds-plugin-loader.sh
+    Scans plugins/ for manifest.json + plugin.sh and runs each in order.
+    Usage: ds-plugin-loader.sh [--dry-run] [--plugin <name>]
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-plugin-loader.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

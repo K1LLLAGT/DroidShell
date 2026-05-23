@@ -1,0 +1,18 @@
+ds-qr-installer(1)                    DroidShell Manual                    ds-qr-installer(1)
+
+NAME
+    ds-qr-installer - DroidShell module
+
+SYNOPSIS
+    ds-qr-installer.sh [options] ...
+
+DESCRIPTION
+    ds-qr-installer.sh
+    Generate a QR code for a universal install command.
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-qr-installer.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

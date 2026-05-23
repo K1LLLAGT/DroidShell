@@ -1,0 +1,26 @@
+ds-generate-module-suite(1)                    DroidShell Manual                    ds-generate-module-suite(1)
+
+NAME
+    ds-generate-module-suite - DroidShell module
+
+SYNOPSIS
+    ds-generate-module-suite.sh [options] ...
+
+DESCRIPTION
+    =============================================================================
+     DroidShell — Module Framework Suite Generator
+    
+     Creates:
+       - ds-module-registry.sh
+       - ds-module-metadata.sh
+       - ds-module-tree.sh
+       - ds-module-docs.sh
+       - ds-module-search.sh
+    =============================================================================
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-generate-module-suite.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

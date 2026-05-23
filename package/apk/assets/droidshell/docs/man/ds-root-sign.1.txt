@@ -1,0 +1,16 @@
+ds-root-sign(1)                    DroidShell Manual                    ds-root-sign(1)
+
+NAME
+    ds-root-sign - DroidShell module
+
+SYNOPSIS
+    ds-root-sign.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-root-sign.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

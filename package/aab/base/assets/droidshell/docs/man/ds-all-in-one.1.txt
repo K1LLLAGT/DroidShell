@@ -1,0 +1,17 @@
+ds-all-in-one(1)                    DroidShell Manual                    ds-all-in-one(1)
+
+NAME
+    ds-all-in-one - DroidShell module
+
+SYNOPSIS
+    ds-all-in-one.sh [options] ...
+
+DESCRIPTION
+    ds-all-in-one.sh — generates full DroidShell script suite (19 scripts)
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-all-in-one.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

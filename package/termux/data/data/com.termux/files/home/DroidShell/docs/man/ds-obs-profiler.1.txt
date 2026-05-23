@@ -1,0 +1,16 @@
+ds-obs-profiler(1)                    DroidShell Manual                    ds-obs-profiler(1)
+
+NAME
+    ds-obs-profiler - DroidShell module
+
+SYNOPSIS
+    ds-obs-profiler.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-obs-profiler.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

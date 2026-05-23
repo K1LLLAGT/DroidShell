@@ -1,0 +1,17 @@
+ds-profiler(1)                    DroidShell Manual                    ds-profiler(1)
+
+NAME
+    ds-profiler - DroidShell module
+
+SYNOPSIS
+    ds-profiler.sh [options] ...
+
+DESCRIPTION
+    ds-profiler.sh — runtime profiler
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-profiler.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

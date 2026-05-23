@@ -1,0 +1,15 @@
+# Renamed scripts — Sat May 23 17:22:09 EDT 2026
+droidshell-backup-restore.sh → ds-backup-restore.sh
+droidshell-build-release.sh → ds-build-release.sh
+droidshell-consolidate.sh → ds-consolidate.sh
+droidshell-docs-init.sh → ds-docs-init.sh
+droidshell-etc-init.sh → ds-etc-init.sh
+droidshell-os.sh → ds-os.sh
+droidshell-plugin-deploy.sh → ds-plugin-deploy.sh
+droidshell-plugin-sdk-init.sh → ds-plugin-sdk-init.sh
+droidshell-plugin-template.sh → ds-plugin-template.sh
+droidshell-release-zip.sh → ds-release-zip.sh
+droidshell-sdk-build.sh → ds-sdk-build.sh
+droidshell-setup.sh → ds-setup.sh
+droidshell-site-build.sh → ds-site-build.sh
+droidshell-tools-init.sh → ds-tools-init.sh

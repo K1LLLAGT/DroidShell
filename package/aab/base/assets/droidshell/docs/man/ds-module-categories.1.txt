@@ -1,0 +1,16 @@
+ds-module-categories(1)                    DroidShell Manual                    ds-module-categories(1)
+
+NAME
+    ds-module-categories - DroidShell module
+
+SYNOPSIS
+    ds-module-categories.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-module-categories.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

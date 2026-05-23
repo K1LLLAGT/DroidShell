@@ -1,0 +1,16 @@
+ds-dist-preset(1)                    DroidShell Manual                    ds-dist-preset(1)
+
+NAME
+    ds-dist-preset - DroidShell module
+
+SYNOPSIS
+    ds-dist-preset.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-dist-preset.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

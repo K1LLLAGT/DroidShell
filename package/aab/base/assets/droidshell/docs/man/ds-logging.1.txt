@@ -1,0 +1,16 @@
+ds-logging(1)                    DroidShell Manual                    ds-logging(1)
+
+NAME
+    ds-logging - DroidShell module
+
+SYNOPSIS
+    ds-logging.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-logging.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

@@ -1,0 +1,16 @@
+ds-site(1)                    DroidShell Manual                    ds-site(1)
+
+NAME
+    ds-site - DroidShell module
+
+SYNOPSIS
+    ds-site.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-site.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

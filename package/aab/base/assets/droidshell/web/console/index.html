@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DroidShell Console</title>
+  <style>
+    body { font-family: sans-serif; background: #000; color: #eee; padding: 1rem; }
+    h1 { color: #6cf; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1rem; }
+    .card { border: 1px solid #444; padding: 1rem; border-radius: 4px; background: #111; }
+    pre { background: #000; padding: 0.5rem; overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <h1>DroidShell Web Console</h1>
+  <div class="grid">
+    <div class="card">
+      <h2>OTA Metadata</h2>
+      <pre id="ota">Loading...</pre>
+    </div>
+    <div class="card">
+      <h2>Registry</h2>
+      <pre id="reg">Loading...</pre>
+    </div>
+  </div>
+  <script>
+    fetch('../../ota/metadata.json')
+      .then(r => r.json())
+      .then(j => { document.getElementById('ota').textContent = JSON.stringify(j, null, 2); })
+      .catch(e => { document.getElementById('ota').textContent = 'Error: ' + e; });
+
+    fetch('../../registry/index.json')
+      .then(r => r.json())
+      .then(j => { document.getElementById('reg').textContent = JSON.stringify(j, null, 2); })
+      .catch(e => { document.getElementById('reg').textContent = 'Error: ' + e; });
+  </script>
+</body>
+</html>

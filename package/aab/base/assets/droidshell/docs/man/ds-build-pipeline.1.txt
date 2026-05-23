@@ -1,0 +1,16 @@
+ds-build-pipeline(1)                    DroidShell Manual                    ds-build-pipeline(1)
+
+NAME
+    ds-build-pipeline - DroidShell module
+
+SYNOPSIS
+    ds-build-pipeline.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-build-pipeline.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

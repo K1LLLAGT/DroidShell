@@ -1,0 +1,23 @@
+ds-bundle-services(1)                    DroidShell Manual                    ds-bundle-services(1)
+
+NAME
+    ds-bundle-services - DroidShell module
+
+SYNOPSIS
+    ds-bundle-services.sh [options] ...
+
+DESCRIPTION
+    ds-bundle-services.sh
+    Adds:
+    - TUI control center
+    - Local API server
+    - Plugin SDK skeleton
+    - Service manager
+    - Web Console 2.0
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-bundle-services.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

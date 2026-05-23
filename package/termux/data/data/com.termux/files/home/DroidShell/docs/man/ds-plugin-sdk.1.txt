@@ -1,0 +1,16 @@
+ds-plugin-sdk(1)                    DroidShell Manual                    ds-plugin-sdk(1)
+
+NAME
+    ds-plugin-sdk - DroidShell module
+
+SYNOPSIS
+    ds-plugin-sdk.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-plugin-sdk.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

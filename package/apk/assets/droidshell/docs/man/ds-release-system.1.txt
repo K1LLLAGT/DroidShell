@@ -1,0 +1,25 @@
+ds-release-system(1)                    DroidShell Manual                    ds-release-system(1)
+
+NAME
+    ds-release-system - DroidShell module
+
+SYNOPSIS
+    ds-release-system.sh [options] ...
+
+DESCRIPTION
+    ds-release-system.sh
+    Complete release system generator for DroidShell:
+    - Versioning
+    - GitHub Actions CI
+    - Web installer
+    - OTA metadata
+    - Release channels
+    - Signing + verification
+    - Delta updates
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-release-system.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

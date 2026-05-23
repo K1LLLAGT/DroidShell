@@ -1,0 +1,21 @@
+ds-log-stream(1)                    DroidShell Manual                    ds-log-stream(1)
+
+NAME
+    ds-log-stream - DroidShell module
+
+SYNOPSIS
+    ds-log-stream.sh [options] ...
+
+DESCRIPTION
+    DroidShell :: scripts/ds-log-stream.sh
+    Streams a log file over a WebSocket using websocat.
+    Usage: ds-log-stream.sh [port] [log-file]
+      port     default: 9090
+      log-file default: ~/DroidShell/logs/droidshell.log
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-log-stream.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

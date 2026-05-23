@@ -1,0 +1,16 @@
+ds-bootstrap(1)                    DroidShell Manual                    ds-bootstrap(1)
+
+NAME
+    ds-bootstrap - DroidShell module
+
+SYNOPSIS
+    ds-bootstrap.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-bootstrap.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

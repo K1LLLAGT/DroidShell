@@ -1,0 +1,15 @@
+{
+  "version": "1.0.1",
+  "channels": {
+    "stable": {
+      "root": "out/droidshell-root.zip",
+      "nonroot": "out/droidshell-nonroot.zip"
+    },
+    "beta": { "root": "", "nonroot": "" },
+    "dev": { "root": "", "nonroot": "" }
+  },
+  "signatures": {
+    "root": "43cc19d62451b049883cdf319330ed9718ad1a8386477980692411fa834d6dcb",
+    "nonroot": "e2d99fb2d4ade06f448df7df3c21e74d95fa1d6888d46374ee0181d39684579f"
+  }
+}

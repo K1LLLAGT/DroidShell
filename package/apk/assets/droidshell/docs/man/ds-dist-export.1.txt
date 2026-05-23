@@ -1,0 +1,16 @@
+ds-dist-export(1)                    DroidShell Manual                    ds-dist-export(1)
+
+NAME
+    ds-dist-export - DroidShell module
+
+SYNOPSIS
+    ds-dist-export.sh [options] ...
+
+DESCRIPTION
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-dist-export.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

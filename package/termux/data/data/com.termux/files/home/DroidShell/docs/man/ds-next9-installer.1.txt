@@ -1,0 +1,17 @@
+ds-next9-installer(1)                    DroidShell Manual                    ds-next9-installer(1)
+
+NAME
+    ds-next9-installer - DroidShell module
+
+SYNOPSIS
+    ds-next9-installer.sh [options] ...
+
+DESCRIPTION
+    ds-next9-installer.sh — generates next 9 DroidShell subsystem scripts
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-next9-installer.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

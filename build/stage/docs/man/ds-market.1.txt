@@ -1,0 +1,17 @@
+ds-market(1)                    DroidShell Manual                    ds-market(1)
+
+NAME
+    ds-market - DroidShell module
+
+SYNOPSIS
+    ds-market.sh [options] ...
+
+DESCRIPTION
+    ds-market.sh — DroidShell plugin marketplace stub
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-market.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

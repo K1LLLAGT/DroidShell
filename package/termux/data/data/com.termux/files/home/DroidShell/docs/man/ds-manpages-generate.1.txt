@@ -1,0 +1,18 @@
+ds-manpages-generate(1)                    DroidShell Manual                    ds-manpages-generate(1)
+
+NAME
+    ds-manpages-generate - DroidShell module
+
+SYNOPSIS
+    ds-manpages-generate.sh [options] ...
+
+DESCRIPTION
+    ds-manpages-generate.sh
+    Generate manpage-style text files for each ds-* script based on header comments.
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-manpages-generate.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+

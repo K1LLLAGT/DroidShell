@@ -1,0 +1,17 @@
+ds-termux-autostart(1)                    DroidShell Manual                    ds-termux-autostart(1)
+
+NAME
+    ds-termux-autostart - DroidShell module
+
+SYNOPSIS
+    ds-termux-autostart.sh [options] ...
+
+DESCRIPTION
+    ds-termux-autostart.sh — install + start DroidShell OS from Termux
+
+FILES
+    /data/data/com.termux/files/home/DroidShell/scripts/ds-termux-autostart.sh
+
+SEE ALSO
+    ds-module-registry.sh, ds-module-docs.sh
+
