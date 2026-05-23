@@ -1,0 +1,4 @@
+
+# Android build artifacts
+source/DroidShell/app/build/
+source/DroidShell/.gradle/
