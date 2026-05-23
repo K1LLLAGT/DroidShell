@@ -1,0 +1,12 @@
+#!/system/bin/sh
+# System-level entrypoint for DroidShell (Magisk-mounted).
+# This can be used from adb shell or other tools.
+
+if [ -x /data/data/com.termux/files/home/DroidShell/ds_root.sh ]; then
+  /data/data/com.termux/files/home/DroidShell/ds_root.sh "$@"
+elif [ -x /sdcard/Documents/DroidShell/ds_root.sh ]; then
+  /sdcard/Documents/DroidShell/ds_root.sh "$@"
+else
+  echo "DroidShell root console not found."
+  exit 1
+fi
