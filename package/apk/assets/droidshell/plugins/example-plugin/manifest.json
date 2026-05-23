@@ -1,7 +1,0 @@
-{
-  "name":        "example-plugin",
-  "version":     "0.1.0",
-  "description": "DroidShell example plugin scaffold",
-  "author":      "K1LLLAGT",
-  "permissions": []
-}

@@ -1,5 +1,0 @@
-<resources>
-    <!-- Example placeholder: you can define colors, bools, dimensions, etc.
-         This file is a template and does not change behavior by default. -->
-    <bool name="droidshell_overlay_enabled">true</bool>
-</resources>

@@ -1,7 +1,0 @@
-{
-  "name": "ExamplePlugin",
-  "description": "Example DroidShell plugin.",
-  "version": "1.0.0",
-  "author": "Your Name",
-  "entrypoint": "plugin.sh"
-}

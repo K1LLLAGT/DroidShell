@@ -21,3 +21,10 @@ out/*.tar.gz
 # Temp files
 *.tmp
 *.swp
+# Build artifacts
+build/
+out/
+package/
+*.apk
+*.aab
+*.deb
