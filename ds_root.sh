@@ -191,3 +191,31 @@ if [ "${1:-}" = "menu" ]; then
   root_autoload_modules
   root_main_menu
 fi
+
+# DS_ROOT_WIDGETS_HOOK
+if [ -f "\$ROOT_BASE_DIR/root/dashboard_widgets.sh" ]; then
+  . "\$ROOT_BASE_DIR/root/dashboard_widgets.sh"
+fi
+
+# Override/extend root_dashboard if widgets available
+if command -v ds_widget_battery >/dev/null 2>&1; then
+  root_dashboard() {
+    clear
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo " DroidShell · Root Dashboard (widgets)"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo
+    ds_widget_battery
+    ds_widget_selinux
+    ds_widget_magisk
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo " [m] Main menu   [q] Quit"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    read -r -p "Choice: " ans
+    case "$ans" in
+      m|M) root_main_menu ;;
+      q|Q) exit 0 ;;
+      *) root_dashboard ;;
+    esac
+  }
+fi
