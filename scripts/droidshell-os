@@ -1,0 +1,119 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# droidshell-os — host CLI for DroidShell OS layer (file-queue transport)
+
+ROOT="$HOME/droidshell/os"
+INBOX="$ROOT/inbox"
+OUTBOX="$ROOT/outbox"
+REQ="$INBOX/request.json"
+RESP="$OUTBOX/response.json"
+
+mkdir -p "$INBOX" "$OUTBOX"
+
+usage() {
+  echo "Usage:"
+  echo "  droidshell-os env.info"
+  echo "  droidshell-os fs.list --path <path>"
+  echo "  droidshell-os backup.app --package <id> --mode <apk|data|both>"
+  echo "  droidshell-os apk.disassemble --apk <path> --out <dir>"
+  echo "  droidshell-os apk.rebuild --smali <dir> --out <apk>"
+  echo "  droidshell-os sync.push --local <path> --remote <path>"
+  echo "  droidshell-os sync.pull --local <path> --remote <path>"
+}
+
+if [ $# -lt 1 ]; then
+  usage
+  exit 1
+fi
+
+COMMAND="$1"
+shift
+
+ID="$(date +%s%N)"
+
+build_args() {
+  cmd="$1"; shift
+  case "$cmd" in
+    env.info)
+      echo '{}'
+      ;;
+    fs.list)
+      while [ $# -gt 0 ]; do
+        case "$1" in
+          --path) PATH_VAL="$2"; shift 2 ;;
+          *) shift ;;
+        esac
+      done
+      echo "{ \"path\": \"${PATH_VAL:-/sdcard}\" }"
+      ;;
+    backup.app)
+      while [ $# -gt 0 ]; do
+        case "$1" in
+          --package) PKG="$2"; shift 2 ;;
+          --mode) MODE="$2"; shift 2 ;;
+          *) shift ;;
+        esac
+      done
+      echo "{ \"package\": \"${PKG:-com.example.app}\", \"mode\": \"${MODE:-both}\" }"
+      ;;
+    apk.disassemble)
+      while [ $# -gt 0 ]; do
+        case "$1" in
+          --apk) APK="$2"; shift 2 ;;
+          --out) OUT="$2"; shift 2 ;;
+          *) shift ;;
+        esac
+      done
+      echo "{ \"apkPath\": \"${APK:-/sdcard/app.apk}\", \"outDir\": \"${OUT:-/sdcard/smali}\" }"
+      ;;
+    apk.rebuild)
+      while [ $# -gt 0 ]; do
+        case "$1" in
+          --smali) SMALI="$2"; shift 2 ;;
+          --out) OUT="$2"; shift 2 ;;
+          *) shift ;;
+        esac
+      done
+      echo "{ \"smaliDir\": \"${SMALI:-/sdcard/smali}\", \"outApk\": \"${OUT:-/sdcard/app-rebuilt.apk}\" }"
+      ;;
+    sync.push|sync.pull)
+      while [ $# -gt 0 ]; do
+        case "$1" in
+          --local) LOCAL="$2"; shift 2 ;;
+          --remote) REMOTE="$2"; shift 2 ;;
+          *) shift ;;
+        esac
+      done
+      echo "{ \"localPath\": \"${LOCAL:-/sdcard/local}\", \"remotePath\": \"${REMOTE:-/sdcard/remote}\" }"
+      ;;
+    *)
+      echo '{}'
+      ;;
+  esac
+}
+
+ARGS_JSON="$(build_args "$COMMAND" "$@")"
+
+cat > "$REQ" <<JSON
+{
+  "version": "1.0",
+  "id": "$ID",
+  "command": "$COMMAND",
+  "args": $ARGS_JSON
+}
+JSON
+
+rm -f "$RESP"
+
+echo "[CLI] Wrote request to $REQ"
+echo "[CLI] Waiting for response..."
+
+for i in $(seq 1 50); do
+  if [ -f "$RESP" ]; then
+    cat "$RESP"
+    exit 0
+  fi
+  sleep 0.2
+done
+
+echo "[CLI] Timeout waiting for response at $RESP" >&2
+exit 1
