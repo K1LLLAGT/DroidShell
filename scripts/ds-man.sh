@@ -1,32 +1,56 @@
 #!/usr/bin/env bash
-# View generated manpage for a ds-* module.
+# DroidShell Manpage Viewer
+# Usage:
+#   ds-man.sh <command>
+#   ds-man.sh list
 
-set -euo pipefail
+set -e
 
-ROOT="$HOME/DroidShell"
-MAN_DIR="$ROOT/docs/man"
+ROOT="/sdcard/DroidShell"
+MAN="$ROOT/docs/man"
 
-name="${1:-}"
-if [ -z "$name" ]; then
-  echo "Usage: ds-man.sh <ds-module-name or ds-module-name.sh>"
-  exit 1
+usage() {
+    echo "Usage:"
+    echo "  ds-man.sh <command>"
+    echo "  ds-man.sh list"
+    exit 1
+}
+
+# Ensure man directory exists
+mkdir -p "$MAN"
+
+# List all manpages
+if [ "$1" = "list" ]; then
+    echo "Available DroidShell manpages:"
+    for f in $(ls "$MAN"/*.md 2>/dev/null | sort); do
+        base=$(basename "$f")
+        cmd="${base%.1.md}"
+        echo "  - $cmd"
+    done
+    exit 0
 fi
 
-case "$name" in
-  *.sh) base="${name%.sh}" ;;
-  *) base="$name" ;;
-esac
+# Require argument
+[ -z "$1" ] && usage
 
-file="$MAN_DIR/$base.1.txt"
+QUERY="$1"
 
-if [ ! -f "$file" ]; then
-  echo "[MAN] Manpage not found, regenerating..."
-  bash "$ROOT/scripts/ds-manpages-generate.sh"
+# Exact match first
+if [ -f "$MAN/$QUERY.1.md" ]; then
+    FILE="$MAN/$QUERY.1.md"
+else
+    # Fuzzy match
+    FILE=$(ls "$MAN"/*"$QUERY"*.md 2>/dev/null | head -n 1 || true)
 fi
 
-if [ ! -f "$file" ]; then
-  echo "[MAN] Still not found: $file"
-  exit 1
+if [ ! -f "$FILE" ]; then
+    echo "[ds-man] No manpage found for '$QUERY'"
+    exit 1
 fi
 
-${PAGER:-less} "$file"
+# Display manpage
+if command -v less >/dev/null 2>&1; then
+    less "$FILE"
+else
+    cat "$FILE"
+fi
