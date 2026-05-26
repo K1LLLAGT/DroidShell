@@ -4,7 +4,8 @@
 #   - OS-DIRECTORY-SPEC.md
 #   - DEVELOPER-HANDBOOK.md
 #   - RUNTIME-ARCHITECTURE.md
-#   - Manpages for all ds-*.sh commands
+#   - Full manpage suite for ds-*.sh
+#   - MANPAGE-INDEX.md
 #   - Static docs site generator (ds-docs-build.sh)
 #   - Developer onboarding script (install-dev.sh)
 
@@ -49,6 +50,7 @@ Root: /sdcard/DroidShell
   - DEVELOPER-HANDBOOK.md
   - RUNTIME-ARCHITECTURE.md
   - man/ — Manpages
+  - MANPAGE-INDEX.md
 
 ## 4. Scripts
 - scripts/
@@ -306,7 +308,33 @@ echo "[DroidShell] Manpages generated."
 
 
 ###############################################
-# 5. STATIC DOCS SITE GENERATOR
+# 5. MANPAGE INDEX
+###############################################
+echo "[DroidShell] Generating MANPAGE-INDEX.md..."
+
+OUT="$DOCS/MANPAGE-INDEX.md"
+
+cat > "$OUT" <<'EOF'
+# DroidShell Manpage Index
+
+This index lists all available `ds-*.sh` commands and their corresponding manpages.
+
+EOF
+
+for f in $(ls "$MAN"/*.md 2>/dev/null | sort); do
+    base=$(basename "$f")
+    cmd="${base%.1.md}"
+    echo "- **$cmd** — docs/man/$base" >> "$OUT"
+done
+
+echo "" >> "$OUT"
+echo "Generated automatically by ds-docs-bootstrap.sh." >> "$OUT"
+
+echo "[DroidShell] MANPAGE-INDEX.md written."
+
+
+###############################################
+# 6. STATIC DOCS SITE GENERATOR
 ###############################################
 cat > "$SCRIPTS/ds-docs-build.sh" <<'EOF'
 #!/usr/bin/env bash
@@ -341,7 +369,7 @@ echo "[DroidShell] ds-docs-build.sh installed."
 
 
 ###############################################
-# 6. DEVELOPER ONBOARDING SCRIPT
+# 7. DEVELOPER ONBOARDING SCRIPT
 ###############################################
 cat > "$SCRIPTS/install-dev.sh" <<'EOF'
 #!/usr/bin/env bash
