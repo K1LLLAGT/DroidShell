@@ -13,7 +13,7 @@
     "ghcr.io/devcontainers/features/common-utils:2": {}
   },
 
-  "postCreateCommand": "bash .devcontainer/setup-droidshell.sh",
+  "postCreateCommand": "bash .devcontainer/setup-droidshell.sh && bash scripts/ds-devcontainer-init.sh",
 
   "customizations": {
     "vscode": {
