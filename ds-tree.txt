@@ -1,0 +1,1717 @@
+.
+├── .devcontainer
+│   ├── devcontainer.json
+│   └── setup-droidshell.sh
+├── .git
+│   ├── HEAD
+│   ├── config
+│   ├── description
+│   ├── hooks
+│   │   ├── applypatch-msg.sample
+│   │   ├── commit-msg.sample
+│   │   ├── fsmonitor-watchman.sample
+│   │   ├── post-update.sample
+│   │   ├── pre-applypatch.sample
+│   │   ├── pre-commit.sample
+│   │   ├── pre-merge-commit.sample
+│   │   ├── pre-push.sample
+│   │   ├── pre-rebase.sample
+│   │   ├── pre-receive.sample
+│   │   ├── prepare-commit-msg.sample
+│   │   ├── push-to-checkout.sample
+│   │   ├── sendemail-validate.sample
+│   │   └── update.sample
+│   ├── index
+│   ├── info
+│   │   └── exclude
+│   ├── logs
+│   │   ├── HEAD
+│   │   └── refs
+│   │       ├── heads
+│   │       │   └── main
+│   │       └── remotes
+│   │           └── origin
+│   │               └── HEAD
+│   ├── objects
+│   │   ├── info
+│   │   └── pack
+│   │       ├── pack-ac265f0046c1f066539dcc30fc46ce7288b69193.idx
+│   │       ├── pack-ac265f0046c1f066539dcc30fc46ce7288b69193.pack
+│   │       └── pack-ac265f0046c1f066539dcc30fc46ce7288b69193.rev
+│   ├── packed-refs
+│   └── refs
+│       ├── heads
+│       │   └── main
+│       ├── remotes
+│       │   └── origin
+│       │       └── HEAD
+│       └── tags
+├── .github
+│   └── workflows
+│       ├── ci.yml
+│       ├── droidshell-ci.yml
+│       ├── droidshell-nightly.yml
+│       ├── droidshell-release.yml
+│       ├── github-only-build.yml
+│       ├── nightly.yml
+│       ├── pages.yml
+│       ├── publish.yml
+│       ├── release-notes.yml
+│       └── release.yml
+├── .gitignore
+├── GIT-SUMMARY.md
+├── README.md
+├── VERSION
+├── desktop
+│   ├── README.md
+│   └── src
+│       └── app.py
+├── docs
+│   ├── architecture.md
+│   ├── changelog
+│   │   └── CHANGELOG.md
+│   ├── contributing
+│   │   └── CONTRIBUTING.md
+│   ├── droidshell-os-cli.md
+│   ├── droidshell-os-layer.md
+│   ├── droidshell-os-transports.md
+│   ├── glossary.md
+│   ├── index-table.md
+│   ├── index.md
+│   ├── legal
+│   │   └── LICENSE
+│   ├── man
+│   │   ├── ds-all-in-one.1.txt
+│   │   ├── ds-all.1.txt
+│   │   ├── ds-api-docs.1.txt
+│   │   ├── ds-api-server.1.txt
+│   │   ├── ds-auth.1.txt
+│   │   ├── ds-auto-hardening.1.txt
+│   │   ├── ds-auto-sync.1.txt
+│   │   ├── ds-auto-update.1.txt
+│   │   ├── ds-backup-restore.1.txt
+│   │   ├── ds-bootstrap-all.1.txt
+│   │   ├── ds-bootstrap.1.txt
+│   │   ├── ds-build-and-update-system.1.txt
+│   │   ├── ds-build-dual.1.txt
+│   │   ├── ds-build-pipeline.1.txt
+│   │   ├── ds-build-release.1.txt
+│   │   ├── ds-build-suite.1.txt
+│   │   ├── ds-build.1.txt
+│   │   ├── ds-bundle-ecosystem.1.txt
+│   │   ├── ds-bundle-installer.1.txt
+│   │   ├── ds-bundle-runtime.1.txt
+│   │   ├── ds-bundle-services.1.txt
+│   │   ├── ds-check.1.txt
+│   │   ├── ds-clean.1.txt
+│   │   ├── ds-cleanup-legacy.1.txt
+│   │   ├── ds-cli.1.txt
+│   │   ├── ds-consolidate.1.txt
+│   │   ├── ds-crash-log.1.txt
+│   │   ├── ds-delta-root-modules.1.txt
+│   │   ├── ds-deps-upgrade.1.txt
+│   │   ├── ds-dev-help.1.txt
+│   │   ├── ds-dev-launcher.1.txt
+│   │   ├── ds-dev-tui.1.txt
+│   │   ├── ds-dev.1.txt
+│   │   ├── ds-dist-export.1.txt
+│   │   ├── ds-dist-import.1.txt
+│   │   ├── ds-dist-preset.1.txt
+│   │   ├── ds-dist-profile.1.txt
+│   │   ├── ds-docs-init.1.txt
+│   │   ├── ds-docs-site.1.txt
+│   │   ├── ds-doctor.1.txt
+│   │   ├── ds-dual-system.1.txt
+│   │   ├── ds-ecosystem-master.1.txt
+│   │   ├── ds-ecosystem.1.txt
+│   │   ├── ds-eng-mode.1.txt
+│   │   ├── ds-engctl.1.txt
+│   │   ├── ds-env-installer.1.txt
+│   │   ├── ds-etc-init.1.txt
+│   │   ├── ds-fix-all-four.1.txt
+│   │   ├── ds-fix-all-three.1.txt
+│   │   ├── ds-fix-everything.1.txt
+│   │   ├── ds-full-update-system.1.txt
+│   │   ├── ds-generate-advanced-suite.1.txt
+│   │   ├── ds-generate-docs-suite.1.txt
+│   │   ├── ds-generate-docs-tools-suite.1.txt
+│   │   ├── ds-generate-fix-suite.1.txt
+│   │   ├── ds-generate-master-suite.1.txt
+│   │   ├── ds-generate-module-suite.1.txt
+│   │   ├── ds-generate-next-tier-2-suite.1.txt
+│   │   ├── ds-generate-next-tier-3-suite.1.txt
+│   │   ├── ds-generate-next-tier-4-suite.1.txt
+│   │   ├── ds-generate-next-tier-5-suite.1.txt
+│   │   ├── ds-generate-next-tier-7-suite.1.txt
+│   │   ├── ds-generate-next-tier-suite.1.txt
+│   │   ├── ds-github-secrets.1.txt
+│   │   ├── ds-gradle-build.1.txt
+│   │   ├── ds-health.1.txt
+│   │   ├── ds-install-universal.1.txt
+│   │   ├── ds-install.1.txt
+│   │   ├── ds-integrity-compare.1.txt
+│   │   ├── ds-integrity-daemon.1.txt
+│   │   ├── ds-integrity-snapshot.1.txt
+│   │   ├── ds-ipc.1.txt
+│   │   ├── ds-java-menu-inject.1.txt
+│   │   ├── ds-kernel.1.txt
+│   │   ├── ds-lab-diff-env.1.txt
+│   │   ├── ds-lab-harness.1.txt
+│   │   ├── ds-lab-snapshot-env.1.txt
+│   │   ├── ds-latest-release.1.txt
+│   │   ├── ds-lint-names.1.txt
+│   │   ├── ds-log-stream.1.txt
+│   │   ├── ds-logging.1.txt
+│   │   ├── ds-magisk-full.1.txt
+│   │   ├── ds-magisk-update-sync.1.txt
+│   │   ├── ds-manpages-generate.1.txt
+│   │   ├── ds-market.1.txt
+│   │   ├── ds-metrics.1.txt
+│   │   ├── ds-module-categories.1.txt
+│   │   ├── ds-module-deps.1.txt
+│   │   ├── ds-module-docs.1.txt
+│   │   ├── ds-module-graph.1.txt
+│   │   ├── ds-module-installer.1.txt
+│   │   ├── ds-module-metadata.1.txt
+│   │   ├── ds-module-registry.1.txt
+│   │   ├── ds-module-sandbox-suite.1.txt
+│   │   ├── ds-module-search.1.txt
+│   │   ├── ds-module-tree.1.txt
+│   │   ├── ds-module-versioning.1.txt
+│   │   ├── ds-netmon.1.txt
+│   │   ├── ds-next3-installer.1.txt
+│   │   ├── ds-next3b-installer.1.txt
+│   │   ├── ds-next9-installer.1.txt
+│   │   ├── ds-obs-history.1.txt
+│   │   ├── ds-obs-metrics.1.txt
+│   │   ├── ds-obs-profiler.1.txt
+│   │   ├── ds-obs-timing.1.txt
+│   │   ├── ds-ops-event-bus.1.txt
+│   │   ├── ds-ops-lock.1.txt
+│   │   ├── ds-ops-queue.1.txt
+│   │   ├── ds-ops-rotate-backups.1.txt
+│   │   ├── ds-ops-rotate-snapshots.1.txt
+│   │   ├── ds-ops-unlock.1.txt
+│   │   ├── ds-ops-worker.1.txt
+│   │   ├── ds-os.1.txt
+│   │   ├── ds-ota-client.1.txt
+│   │   ├── ds-ota-metadata.1.txt
+│   │   ├── ds-ota-unified.1.txt
+│   │   ├── ds-perms.1.txt
+│   │   ├── ds-phase1-rebrand.1.txt
+│   │   ├── ds-phase1-repair.1.txt
+│   │   ├── ds-pkg-repo-server.1.txt
+│   │   ├── ds-pkg-repo.1.txt
+│   │   ├── ds-pkg.1.txt
+│   │   ├── ds-plugin-deploy.1.txt
+│   │   ├── ds-plugin-loader.1.txt
+│   │   ├── ds-plugin-metadata.1.txt
+│   │   ├── ds-plugin-sdk-init.1.txt
+│   │   ├── ds-plugin-sdk.1.txt
+│   │   ├── ds-plugin-template.1.txt
+│   │   ├── ds-policy-guard.1.txt
+│   │   ├── ds-policy-invariants.1.txt
+│   │   ├── ds-policy-preflight.1.txt
+│   │   ├── ds-policy-rollback.1.txt
+│   │   ├── ds-profiler.1.txt
+│   │   ├── ds-qr-install.1.txt
+│   │   ├── ds-qr-installer.1.txt
+│   │   ├── ds-rebuild-strings.1.txt
+│   │   ├── ds-reg-add.1.txt
+│   │   ├── ds-release-advanced.1.txt
+│   │   ├── ds-release-pack.1.txt
+│   │   ├── ds-release-system.1.txt
+│   │   ├── ds-release-zip.1.txt
+│   │   ├── ds-release.1.txt
+│   │   ├── ds-remote.1.txt
+│   │   ├── ds-rename-droidshell-scripts.1.txt
+│   │   ├── ds-root-advanced.1.txt
+│   │   ├── ds-root-api.1.txt
+│   │   ├── ds-root-extra-modules.1.txt
+│   │   ├── ds-root-integration.1.txt
+│   │   ├── ds-root-module-manager.1.txt
+│   │   ├── ds-root-rollback.1.txt
+│   │   ├── ds-root-sign.1.txt
+│   │   ├── ds-root-snapshot.1.txt
+│   │   ├── ds-root-tui.1.txt
+│   │   ├── ds-root-verify.1.txt
+│   │   ├── ds-sandbox.1.txt
+│   │   ├── ds-scheduler.1.txt
+│   │   ├── ds-sdk-build.1.txt
+│   │   ├── ds-sdk.1.txt
+│   │   ├── ds-service-manager.1.txt
+│   │   ├── ds-services.1.txt
+│   │   ├── ds-setup.1.txt
+│   │   ├── ds-sign-packages.1.txt
+│   │   ├── ds-site-build.1.txt
+│   │   ├── ds-site.1.txt
+│   │   ├── ds-sync.1.txt
+│   │   ├── ds-telemetry-log.1.txt
+│   │   ├── ds-telemetry-report.1.txt
+│   │   ├── ds-termux-autostart.1.txt
+│   │   ├── ds-test-runner.1.txt
+│   │   ├── ds-tools-init.1.txt
+│   │   ├── ds-tree.1.txt
+│   │   ├── ds-tui.1.txt
+│   │   ├── ds-update-checker.1.txt
+│   │   ├── ds-update-dialog.1.txt
+│   │   ├── ds-updater-daemon.1.txt
+│   │   ├── ds-verify-packages.1.txt
+│   │   ├── ds-version.1.txt
+│   │   ├── ds-vfs.1.txt
+│   │   └── ds-workspace.1.txt
+│   ├── manifest-updates.txt
+│   ├── modules.md
+│   ├── troubleshooting.md
+│   └── usage.md
+├── droidshell-build.sh
+├── droidshell-os-bootstrap.sh
+├── ds-os-advanced-installer.sh
+├── ds-os-full-installer.sh
+├── ds-os-layer-installer.sh
+├── ds-os-next-suite-installer.sh
+├── ds-stage0-bootstrap.sh
+├── ds-tree.txt
+├── ds_root.sh
+├── install.sh
+├── installers
+│   └── ds-os-next9-installer.sh
+├── magisk-droidshell
+│   ├── module.prop
+│   ├── post-fs-data.sh
+│   ├── service.sh
+│   └── system
+│       ├── bin
+│       │   └── droidshell-cli
+│       ├── etc
+│       │   ├── droidshell-debug.conf
+│       │   └── droidshell-thermal.conf
+│       └── overlay
+│           └── DroidShellOverlay
+│               ├── AndroidManifest.xml
+│               └── res
+│                   └── values
+│                       └── droidshell_overlay.xml
+├── ota
+│   ├── channels
+│   │   ├── beta.json
+│   │   ├── dev.json
+│   │   └── stable.json
+│   ├── index.json
+│   ├── magisk-update.json
+│   └── metadata.json
+├── plugins
+│   └── example-plugin
+│       ├── manifest.json
+│       └── plugin.sh
+├── registry
+│   ├── graphs
+│   │   ├── modules-graph.dot
+│   │   └── modules-graph.txt
+│   └── index.json
+├── root
+│   ├── apk_extract.sh
+│   ├── backup.sh
+│   ├── dashboard_widgets.sh
+│   ├── detect_root.sh
+│   ├── fileops.sh
+│   ├── log_collect.sh
+│   ├── modules
+│   │   ├── build_module.sh
+│   │   ├── dns.sh
+│   │   ├── firewall.sh
+│   │   ├── kernel.sh
+│   │   ├── memory.sh
+│   │   ├── mounts.sh
+│   │   ├── partition_ops.sh
+│   │   ├── root_ota.sh
+│   │   ├── scheduler.sh
+│   │   ├── selinux_inspect.sh
+│   │   ├── services.sh
+│   │   ├── storage.sh
+│   │   ├── sysprops.sh
+│   │   ├── thermal.sh
+│   │   ├── update_system.sh
+│   │   └── verified_boot.sh
+│   ├── net_inspect.sh
+│   ├── proc_inspect.sh
+│   └── shell_exec.sh
+├── scripts
+│   ├── build-magisk-droidshell.sh
+│   ├── droidshell-os
+│   ├── ds-all-in-one.sh
+│   ├── ds-all.sh
+│   ├── ds-api-docs.sh
+│   ├── ds-api-server.sh
+│   ├── ds-auth.sh
+│   ├── ds-auto-hardening.sh
+│   ├── ds-auto-sync.sh
+│   ├── ds-auto-update.sh
+│   ├── ds-backup-restore.sh
+│   ├── ds-bootstrap-all.sh
+│   ├── ds-bootstrap.sh
+│   ├── ds-build-aab.sh
+│   ├── ds-build-and-update-system.sh
+│   ├── ds-build-apk.sh
+│   ├── ds-build-dual.sh
+│   ├── ds-build-pipeline.sh
+│   ├── ds-build-release.sh
+│   ├── ds-build-suite.sh
+│   ├── ds-build-termux-package.sh
+│   ├── ds-build.sh
+│   ├── ds-bundle-ecosystem.sh
+│   ├── ds-bundle-installer.sh
+│   ├── ds-bundle-runtime.sh
+│   ├── ds-bundle-services.sh
+│   ├── ds-check.sh
+│   ├── ds-clean.sh
+│   ├── ds-cleanup-legacy.sh
+│   ├── ds-cli.sh
+│   ├── ds-consolidate.sh
+│   ├── ds-crash-log.sh
+│   ├── ds-dashboard.sh
+│   ├── ds-delta-root-modules.sh
+│   ├── ds-deps-upgrade.sh
+│   ├── ds-dev-help.sh
+│   ├── ds-dev-launcher.sh
+│   ├── ds-dev-tui.sh
+│   ├── ds-dev.sh
+│   ├── ds-devcontainer-init.sh
+│   ├── ds-dist-export.sh
+│   ├── ds-dist-import.sh
+│   ├── ds-dist-preset.sh
+│   ├── ds-dist-profile.sh
+│   ├── ds-docs-index.sh
+│   ├── ds-docs-init.sh
+│   ├── ds-docs-search.sh
+│   ├── ds-docs-serve.sh
+│   ├── ds-docs-site.sh
+│   ├── ds-doctor.sh
+│   ├── ds-dual-system.sh
+│   ├── ds-ecosystem-master.sh
+│   ├── ds-ecosystem.sh
+│   ├── ds-emulator.sh
+│   ├── ds-eng-mode.sh
+│   ├── ds-engctl.sh
+│   ├── ds-env-installer.sh
+│   ├── ds-etc-init.sh
+│   ├── ds-fix-all-four.sh
+│   ├── ds-fix-all-three.sh
+│   ├── ds-fix-build-artifacts.sh
+│   ├── ds-fix-everything.sh
+│   ├── ds-full-update-system.sh
+│   ├── ds-generate-advanced-suite.sh
+│   ├── ds-generate-binary-suite-final.sh
+│   ├── ds-generate-binary-suite-fixed.sh
+│   ├── ds-generate-binary-suite.sh
+│   ├── ds-generate-ci-suite.sh
+│   ├── ds-generate-devops-suite.sh
+│   ├── ds-generate-docs-suite.sh
+│   ├── ds-generate-docs-tools-suite.sh
+│   ├── ds-generate-fix-suite.sh
+│   ├── ds-generate-master-suite.sh
+│   ├── ds-generate-module-suite.sh
+│   ├── ds-generate-next-tier-2-suite.sh
+│   ├── ds-generate-next-tier-3-suite.sh
+│   ├── ds-generate-next-tier-4-suite.sh
+│   ├── ds-generate-next-tier-5-suite.sh
+│   ├── ds-generate-next-tier-7-suite.sh
+│   ├── ds-generate-next-tier-suite.sh
+│   ├── ds-generate-ux-suite.sh
+│   ├── ds-github-secrets.sh
+│   ├── ds-gradle-build.sh
+│   ├── ds-graph-tui.sh
+│   ├── ds-graphs-refresh.sh
+│   ├── ds-health.sh
+│   ├── ds-install-universal.sh
+│   ├── ds-install.sh
+│   ├── ds-integrity-compare.sh
+│   ├── ds-integrity-daemon.sh
+│   ├── ds-integrity-snapshot.sh
+│   ├── ds-ipc.sh
+│   ├── ds-java-menu-inject.sh
+│   ├── ds-kernel.sh
+│   ├── ds-lab-diff-env.sh
+│   ├── ds-lab-harness.sh
+│   ├── ds-lab-snapshot-env.sh
+│   ├── ds-latest-release.sh
+│   ├── ds-lint-names.sh
+│   ├── ds-log-stream.sh
+│   ├── ds-logging.sh
+│   ├── ds-magisk-full.sh
+│   ├── ds-magisk-update-sync.sh
+│   ├── ds-make.sh
+│   ├── ds-man.sh
+│   ├── ds-manpages-generate.sh
+│   ├── ds-market.sh
+│   ├── ds-metrics.sh
+│   ├── ds-module-categories.sh
+│   ├── ds-module-deps.sh
+│   ├── ds-module-docs.sh
+│   ├── ds-module-graph.sh
+│   ├── ds-module-installer.sh
+│   ├── ds-module-metadata.sh
+│   ├── ds-module-registry-v2.sh
+│   ├── ds-module-registry.sh
+│   ├── ds-module-sandbox-suite.sh
+│   ├── ds-module-search.sh
+│   ├── ds-module-tree.sh
+│   ├── ds-module-versioning.sh
+│   ├── ds-netmon.sh
+│   ├── ds-next3-installer.sh
+│   ├── ds-next3b-installer.sh
+│   ├── ds-next9-installer.sh
+│   ├── ds-obs-history.sh
+│   ├── ds-obs-metrics.sh
+│   ├── ds-obs-profiler.sh
+│   ├── ds-obs-timing.sh
+│   ├── ds-ops-event-bus.sh
+│   ├── ds-ops-lock.sh
+│   ├── ds-ops-queue.sh
+│   ├── ds-ops-rotate-backups.sh
+│   ├── ds-ops-rotate-snapshots.sh
+│   ├── ds-ops-unlock.sh
+│   ├── ds-ops-worker.sh
+│   ├── ds-os.sh
+│   ├── ds-ota-client.sh
+│   ├── ds-ota-metadata.sh
+│   ├── ds-ota-unified.sh
+│   ├── ds-patch-builders.sh
+│   ├── ds-perms.sh
+│   ├── ds-phase1-rebrand.sh
+│   ├── ds-phase1-repair.sh
+│   ├── ds-pkg-repo-server.sh
+│   ├── ds-pkg-repo.sh
+│   ├── ds-pkg.sh
+│   ├── ds-plugin-deploy.sh
+│   ├── ds-plugin-loader.sh
+│   ├── ds-plugin-metadata.sh
+│   ├── ds-plugin-sdk-init.sh
+│   ├── ds-plugin-sdk.sh
+│   ├── ds-plugin-template.sh
+│   ├── ds-policy-guard.sh
+│   ├── ds-policy-invariants.sh
+│   ├── ds-policy-preflight.sh
+│   ├── ds-policy-rollback.sh
+│   ├── ds-profiler.sh
+│   ├── ds-qr-install.sh
+│   ├── ds-qr-installer.sh
+│   ├── ds-rebuild-strings.sh
+│   ├── ds-reg-add.sh
+│   ├── ds-release-advanced.sh
+│   ├── ds-release-automation.sh
+│   ├── ds-release-pack.sh
+│   ├── ds-release-system.sh
+│   ├── ds-release-zip.sh
+│   ├── ds-release.sh
+│   ├── ds-remote.sh
+│   ├── ds-rename-droidshell-scripts.sh
+│   ├── ds-root-advanced.sh
+│   ├── ds-root-api.sh
+│   ├── ds-root-extra-modules.sh
+│   ├── ds-root-integration.sh
+│   ├── ds-root-module-manager.sh
+│   ├── ds-root-rollback.sh
+│   ├── ds-root-sign.sh
+│   ├── ds-root-snapshot.sh
+│   ├── ds-root-tui.sh
+│   ├── ds-root-verify.sh
+│   ├── ds-sandbox.sh
+│   ├── ds-scheduler.sh
+│   ├── ds-sdk-build.sh
+│   ├── ds-sdk.sh
+│   ├── ds-service-manager.sh
+│   ├── ds-services.sh
+│   ├── ds-setup.sh
+│   ├── ds-sign-packages.sh
+│   ├── ds-site-build.sh
+│   ├── ds-site-rebuild.sh
+│   ├── ds-site.sh
+│   ├── ds-stage.sh
+│   ├── ds-sync.sh
+│   ├── ds-telemetry-log.sh
+│   ├── ds-telemetry-report.sh
+│   ├── ds-termux-autostart.sh
+│   ├── ds-test-runner.sh
+│   ├── ds-tools-init.sh
+│   ├── ds-tree.sh
+│   ├── ds-tui.sh
+│   ├── ds-update-checker.sh
+│   ├── ds-update-dialog.sh
+│   ├── ds-updater-daemon.sh
+│   ├── ds-verify-packages.sh
+│   ├── ds-version.sh
+│   ├── ds-vfs.sh
+│   ├── ds-workspace.sh
+│   ├── ds_root_enhancments.sh
+│   ├── renamed-droidshell-scripts.log
+│   └── signing-policy.sh
+├── sdk
+│   ├── README.md
+│   └── plugin-template
+│       ├── README.md
+│       ├── manifest.json
+│       └── plugin.sh
+├── site
+│   ├── architecture.html
+│   ├── changelog
+│   │   └── CHANGELOG.html
+│   ├── contributing
+│   │   └── CONTRIBUTING.html
+│   ├── droidshell-os-cli.html
+│   ├── droidshell-os-layer.html
+│   ├── droidshell-os-transports.html
+│   ├── glossary.html
+│   ├── index.html
+│   ├── legal
+│   │   └── LICENSE.html
+│   ├── modules.html
+│   ├── troubleshooting.html
+│   └── usage.html
+├── source
+│   └── DroidShell
+│       ├── .editorconfig
+│       ├── .gitattributes
+│       ├── .github
+│       │   ├── FUNDING.yml
+│       │   ├── ISSUE_TEMPLATE
+│       │   │   ├── 01-bug-report.yml
+│       │   │   ├── 02-feature-request.yml
+│       │   │   └── config.yml
+│       │   ├── dependabot.yml
+│       │   └── workflows
+│       │       ├── attach_debug_apks_to_release.yml
+│       │       ├── debug_build.yml
+│       │       ├── dependency-submission.yml
+│       │       ├── gradle-wrapper-validation.yml
+│       │       ├── run_tests.yml
+│       │       └── trigger_library_builds_on_jitpack.yml
+│       ├── .gitignore
+│       ├── LICENSE.md
+│       ├── README.md
+│       ├── SECURITY.md
+│       ├── app
+│       │   ├── build.gradle
+│       │   ├── proguard-rules.pro
+│       │   ├── src
+│       │   │   ├── main
+│       │   │   │   ├── AndroidManifest.xml
+│       │   │   │   ├── cpp
+│       │   │   │   │   ├── Android.mk
+│       │   │   │   │   ├── termux-bootstrap-zip.S
+│       │   │   │   │   └── termux-bootstrap.c
+│       │   │   │   ├── java
+│       │   │   │   │   └── com
+│       │   │   │   │       ├── droidshell
+│       │   │   │   │       │   └── os
+│       │   │   │   │       │       ├── OsCommandRouter.kt
+│       │   │   │   │       │       ├── OsEnvModule.kt
+│       │   │   │   │       │       ├── OsJson.kt
+│       │   │   │   │       │       ├── OsService.kt
+│       │   │   │   │       │       ├── modules
+│       │   │   │   │       │       │   ├── OsApkModule.kt
+│       │   │   │   │       │       │   ├── OsBackupModule.kt
+│       │   │   │   │       │       │   ├── OsFsModule.kt
+│       │   │   │   │       │       │   └── OsSyncModule.kt
+│       │   │   │   │       │       └── transport
+│       │   │   │   │       │           ├── OsTransportBinder.kt
+│       │   │   │   │       │           ├── OsTransportFile.kt
+│       │   │   │   │       │           └── OsTransportHttp.kt
+│       │   │   │   │       └── termux
+│       │   │   │   │           ├── app
+│       │   │   │   │           │   ├── RunCommandService.java
+│       │   │   │   │           │   ├── TermuxActivity.java
+│       │   │   │   │           │   ├── TermuxApplication.java
+│       │   │   │   │           │   ├── TermuxInstaller.java
+│       │   │   │   │           │   ├── TermuxOpenReceiver.java
+│       │   │   │   │           │   ├── TermuxService.java
+│       │   │   │   │           │   ├── activities
+│       │   │   │   │           │   │   ├── HelpActivity.java
+│       │   │   │   │           │   │   └── SettingsActivity.java
+│       │   │   │   │           │   ├── api
+│       │   │   │   │           │   │   └── file
+│       │   │   │   │           │   │       └── FileReceiverActivity.java
+│       │   │   │   │           │   ├── event
+│       │   │   │   │           │   │   └── SystemEventReceiver.java
+│       │   │   │   │           │   ├── fragments
+│       │   │   │   │           │   │   └── settings
+│       │   │   │   │           │   │       ├── TermuxAPIPreferencesFragment.java
+│       │   │   │   │           │   │       ├── TermuxFloatPreferencesFragment.java
+│       │   │   │   │           │   │       ├── TermuxPreferencesFragment.java
+│       │   │   │   │           │   │       ├── TermuxTaskerPreferencesFragment.java
+│       │   │   │   │           │   │       ├── TermuxWidgetPreferencesFragment.java
+│       │   │   │   │           │   │       ├── termux
+│       │   │   │   │           │   │       │   ├── DebuggingPreferencesFragment.java
+│       │   │   │   │           │   │       │   ├── TerminalIOPreferencesFragment.java
+│       │   │   │   │           │   │       │   └── TerminalViewPreferencesFragment.java
+│       │   │   │   │           │   │       ├── termux_api
+│       │   │   │   │           │   │       │   └── DebuggingPreferencesFragment.java
+│       │   │   │   │           │   │       ├── termux_float
+│       │   │   │   │           │   │       │   └── DebuggingPreferencesFragment.java
+│       │   │   │   │           │   │       ├── termux_tasker
+│       │   │   │   │           │   │       │   └── DebuggingPreferencesFragment.java
+│       │   │   │   │           │   │       └── termux_widget
+│       │   │   │   │           │   │           └── DebuggingPreferencesFragment.java
+│       │   │   │   │           │   ├── models
+│       │   │   │   │           │   │   └── UserAction.java
+│       │   │   │   │           │   └── terminal
+│       │   │   │   │           │       ├── TermuxActivityRootView.java
+│       │   │   │   │           │       ├── TermuxSessionsListViewController.java
+│       │   │   │   │           │       ├── TermuxTerminalSessionActivityClient.java
+│       │   │   │   │           │       ├── TermuxTerminalSessionServiceClient.java
+│       │   │   │   │           │       ├── TermuxTerminalViewClient.java
+│       │   │   │   │           │       └── io
+│       │   │   │   │           │           ├── FullScreenWorkAround.java
+│       │   │   │   │           │           ├── KeyboardShortcut.java
+│       │   │   │   │           │           ├── TerminalToolbarViewPager.java
+│       │   │   │   │           │           └── TermuxTerminalExtraKeys.java
+│       │   │   │   │           └── filepicker
+│       │   │   │   │               └── TermuxDocumentsProvider.java
+│       │   │   │   └── res
+│       │   │   │       ├── drawable
+│       │   │   │       │   ├── banner.png
+│       │   │   │       │   ├── current_session.xml
+│       │   │   │       │   ├── current_session_black.xml
+│       │   │   │       │   ├── ic_foreground.xml
+│       │   │   │       │   ├── ic_new_session.xml
+│       │   │   │       │   ├── ic_service_notification.xml
+│       │   │   │       │   ├── ic_settings.xml
+│       │   │   │       │   ├── session_background_black_selected.xml
+│       │   │   │       │   ├── session_background_selected.xml
+│       │   │   │       │   ├── session_ripple.xml
+│       │   │   │       │   ├── session_ripple_black.xml
+│       │   │   │       │   └── terminal_scroll_shape.xml
+│       │   │   │       ├── layout
+│       │   │   │       │   ├── activity_settings.xml
+│       │   │   │       │   ├── activity_termux.xml
+│       │   │   │       │   ├── item_terminal_sessions_list.xml
+│       │   │   │       │   ├── preference_markdown_text.xml
+│       │   │   │       │   ├── view_terminal_toolbar_extra_keys.xml
+│       │   │   │       │   └── view_terminal_toolbar_text_input.xml
+│       │   │   │       ├── mipmap-anydpi-v26
+│       │   │   │       │   ├── ic_launcher.xml
+│       │   │   │       │   └── ic_launcher_round.xml
+│       │   │   │       ├── mipmap-hdpi
+│       │   │   │       │   ├── ic_launcher.png
+│       │   │   │       │   └── ic_launcher_round.png
+│       │   │   │       ├── mipmap-mdpi
+│       │   │   │       │   ├── ic_launcher.png
+│       │   │   │       │   └── ic_launcher_round.png
+│       │   │   │       ├── mipmap-xhdpi
+│       │   │   │       │   ├── ic_launcher.png
+│       │   │   │       │   └── ic_launcher_round.png
+│       │   │   │       ├── mipmap-xxhdpi
+│       │   │   │       │   ├── ic_launcher.png
+│       │   │   │       │   └── ic_launcher_round.png
+│       │   │   │       ├── mipmap-xxxhdpi
+│       │   │   │       │   ├── ic_launcher.png
+│       │   │   │       │   └── ic_launcher_round.png
+│       │   │   │       ├── values
+│       │   │   │       │   ├── attrs.xml
+│       │   │   │       │   ├── colors.xml
+│       │   │   │       │   ├── ids.xml
+│       │   │   │       │   ├── strings.xml
+│       │   │   │       │   ├── styles.xml
+│       │   │   │       │   └── themes.xml
+│       │   │   │       ├── values-night
+│       │   │   │       │   └── themes.xml
+│       │   │   │       └── xml
+│       │   │   │           ├── root_preferences.xml
+│       │   │   │           ├── shortcuts.xml
+│       │   │   │           ├── termux_api_debugging_preferences.xml
+│       │   │   │           ├── termux_api_preferences.xml
+│       │   │   │           ├── termux_debugging_preferences.xml
+│       │   │   │           ├── termux_float_debugging_preferences.xml
+│       │   │   │           ├── termux_float_preferences.xml
+│       │   │   │           ├── termux_preferences.xml
+│       │   │   │           ├── termux_tasker_debugging_preferences.xml
+│       │   │   │           ├── termux_tasker_preferences.xml
+│       │   │   │           ├── termux_terminal_io_preferences.xml
+│       │   │   │           ├── termux_terminal_view_preferences.xml
+│       │   │   │           ├── termux_widget_debugging_preferences.xml
+│       │   │   │           └── termux_widget_preferences.xml
+│       │   │   └── test
+│       │   │       └── java
+│       │   │           └── com
+│       │   │               └── termux
+│       │   │                   └── app
+│       │   │                       ├── TermuxActivityTest.java
+│       │   │                       └── api
+│       │   │                           └── file
+│       │   │                               └── FileReceiverActivityTest.java
+│       │   └── testkey_untrusted.jks
+│       ├── art
+│       │   ├── copy-to-other-apps.sh
+│       │   ├── feature-graphic.svg
+│       │   ├── generate-big-icon.sh
+│       │   ├── generate-feature-graphic.sh
+│       │   ├── generate-launcher-images.sh
+│       │   ├── generate-tv-banner.sh
+│       │   ├── ic_launcher.svg
+│       │   ├── ic_launcher2.png
+│       │   ├── ic_launcher2_round.png
+│       │   └── tv-banner.svg
+│       ├── build.gradle
+│       ├── docs
+│       │   └── en
+│       │       └── index.md
+│       ├── fastlane
+│       │   └── metadata
+│       │       └── android
+│       │           └── en-US
+│       │               ├── full_description.txt
+│       │               ├── images
+│       │               │   ├── icon.png
+│       │               │   └── phoneScreenshots
+│       │               │       ├── 1.jpg
+│       │               │       ├── 2.jpg
+│       │               │       ├── 3.jpg
+│       │               │       └── 4.jpg
+│       │               └── short_description.txt
+│       ├── gradle
+│       │   └── wrapper
+│       │       ├── gradle-wrapper.jar
+│       │       └── gradle-wrapper.properties
+│       ├── gradle.properties
+│       ├── gradlew
+│       ├── gradlew.bat
+│       ├── jitpack.yml
+│       ├── settings.gradle
+│       ├── site
+│       │   └── assets
+│       │       └── sponsors
+│       │           ├── cloudflare.png
+│       │           ├── github.png
+│       │           └── nlnet-ngi-mobifree.png
+│       ├── terminal-emulator
+│       │   ├── build.gradle
+│       │   ├── proguard-rules.pro
+│       │   └── src
+│       │       ├── main
+│       │       │   ├── AndroidManifest.xml
+│       │       │   ├── java
+│       │       │   │   └── com
+│       │       │   │       └── termux
+│       │       │   │           └── terminal
+│       │       │   │               ├── ByteQueue.java
+│       │       │   │               ├── JNI.java
+│       │       │   │               ├── KeyHandler.java
+│       │       │   │               ├── Logger.java
+│       │       │   │               ├── TerminalBuffer.java
+│       │       │   │               ├── TerminalColorScheme.java
+│       │       │   │               ├── TerminalColors.java
+│       │       │   │               ├── TerminalEmulator.java
+│       │       │   │               ├── TerminalOutput.java
+│       │       │   │               ├── TerminalRow.java
+│       │       │   │               ├── TerminalSession.java
+│       │       │   │               ├── TerminalSessionClient.java
+│       │       │   │               ├── TextStyle.java
+│       │       │   │               └── WcWidth.java
+│       │       │   └── jni
+│       │       │       ├── Android.mk
+│       │       │       └── termux.c
+│       │       └── test
+│       │           └── java
+│       │               └── com
+│       │                   └── termux
+│       │                       └── terminal
+│       │                           ├── ApcTest.java
+│       │                           ├── ByteQueueTest.java
+│       │                           ├── ControlSequenceIntroducerTest.java
+│       │                           ├── CursorAndScreenTest.java
+│       │                           ├── DecSetTest.java
+│       │                           ├── DeviceControlStringTest.java
+│       │                           ├── HistoryTest.java
+│       │                           ├── KeyHandlerTest.java
+│       │                           ├── OperatingSystemControlTest.java
+│       │                           ├── RectangularAreasTest.java
+│       │                           ├── ResizeTest.java
+│       │                           ├── ScreenBufferTest.java
+│       │                           ├── ScrollRegionTest.java
+│       │                           ├── TerminalRowTest.java
+│       │                           ├── TerminalTest.java
+│       │                           ├── TerminalTestCase.java
+│       │                           ├── TextStyleTest.java
+│       │                           ├── UnicodeInputTest.java
+│       │                           └── WcWidthTest.java
+│       ├── terminal-view
+│       │   ├── build.gradle
+│       │   ├── proguard-rules.pro
+│       │   └── src
+│       │       └── main
+│       │           ├── AndroidManifest.xml
+│       │           ├── java
+│       │           │   └── com
+│       │           │       └── termux
+│       │           │           └── view
+│       │           │               ├── GestureAndScaleRecognizer.java
+│       │           │               ├── TerminalRenderer.java
+│       │           │               ├── TerminalView.java
+│       │           │               ├── TerminalViewClient.java
+│       │           │               ├── support
+│       │           │               │   └── PopupWindowCompatGingerbread.java
+│       │           │               └── textselection
+│       │           │                   ├── CursorController.java
+│       │           │                   ├── TextSelectionCursorController.java
+│       │           │                   └── TextSelectionHandleView.java
+│       │           └── res
+│       │               ├── drawable
+│       │               │   ├── text_select_handle_left_material.xml
+│       │               │   └── text_select_handle_right_material.xml
+│       │               └── values
+│       │                   └── strings.xml
+│       └── termux-shared
+│           ├── .gitignore
+│           ├── LICENSE.md
+│           ├── build.gradle
+│           ├── proguard-rules.pro
+│           └── src
+│               ├── androidTest
+│               │   └── java
+│               │       └── com
+│               │           └── termux
+│               │               └── shared
+│               │                   └── ExampleInstrumentedTest.java
+│               └── main
+│                   ├── AndroidManifest.xml
+│                   ├── cpp
+│                   │   ├── Android.mk
+│                   │   ├── Application.mk
+│                   │   └── local-socket.cpp
+│                   ├── java
+│                   │   └── com
+│                   │       └── termux
+│                   │           └── shared
+│                   │               ├── activities
+│                   │               │   ├── ReportActivity.java
+│                   │               │   └── TextIOActivity.java
+│                   │               ├── activity
+│                   │               │   ├── ActivityErrno.java
+│                   │               │   ├── ActivityUtils.java
+│                   │               │   └── media
+│                   │               │       └── AppCompatActivityUtils.java
+│                   │               ├── android
+│                   │               │   ├── AndroidUtils.java
+│                   │               │   ├── FeatureFlagUtils.java
+│                   │               │   ├── PackageUtils.java
+│                   │               │   ├── PermissionUtils.java
+│                   │               │   ├── PhantomProcessUtils.java
+│                   │               │   ├── ProcessUtils.java
+│                   │               │   ├── SELinuxUtils.java
+│                   │               │   ├── SettingsProviderUtils.java
+│                   │               │   ├── UserUtils.java
+│                   │               │   └── resource
+│                   │               │       └── ResourceUtils.java
+│                   │               ├── crash
+│                   │               │   └── CrashHandler.java
+│                   │               ├── data
+│                   │               │   ├── DataUtils.java
+│                   │               │   └── IntentUtils.java
+│                   │               ├── errors
+│                   │               │   ├── Errno.java
+│                   │               │   ├── Error.java
+│                   │               │   └── FunctionErrno.java
+│                   │               ├── file
+│                   │               │   ├── FileUtils.java
+│                   │               │   ├── FileUtilsErrno.java
+│                   │               │   ├── filesystem
+│                   │               │   │   ├── FileAttributes.java
+│                   │               │   │   ├── FileKey.java
+│                   │               │   │   ├── FilePermission.java
+│                   │               │   │   ├── FilePermissions.java
+│                   │               │   │   ├── FileTime.java
+│                   │               │   │   ├── FileType.java
+│                   │               │   │   ├── FileTypes.java
+│                   │               │   │   ├── NativeDispatcher.java
+│                   │               │   │   └── UnixConstants.java
+│                   │               │   └── tests
+│                   │               │       └── FileUtilsTests.java
+│                   │               ├── interact
+│                   │               │   ├── MessageDialogUtils.java
+│                   │               │   └── ShareUtils.java
+│                   │               ├── jni
+│                   │               │   └── models
+│                   │               │       └── JniResult.java
+│                   │               ├── logger
+│                   │               │   └── Logger.java
+│                   │               ├── markdown
+│                   │               │   └── MarkdownUtils.java
+│                   │               ├── models
+│                   │               │   ├── ReportInfo.java
+│                   │               │   └── TextIOInfo.java
+│                   │               ├── net
+│                   │               │   ├── socket
+│                   │               │   │   └── local
+│                   │               │   │       ├── ILocalSocketManager.java
+│                   │               │   │       ├── LocalClientSocket.java
+│                   │               │   │       ├── LocalServerSocket.java
+│                   │               │   │       ├── LocalSocketErrno.java
+│                   │               │   │       ├── LocalSocketManager.java
+│                   │               │   │       ├── LocalSocketManagerClientBase.java
+│                   │               │   │       ├── LocalSocketRunConfig.java
+│                   │               │   │       └── PeerCred.java
+│                   │               │   ├── uri
+│                   │               │   │   ├── UriScheme.java
+│                   │               │   │   └── UriUtils.java
+│                   │               │   └── url
+│                   │               │       └── UrlUtils.java
+│                   │               ├── notification
+│                   │               │   └── NotificationUtils.java
+│                   │               ├── reflection
+│                   │               │   └── ReflectionUtils.java
+│                   │               ├── settings
+│                   │               │   ├── preferences
+│                   │               │   │   ├── AppSharedPreferences.java
+│                   │               │   │   └── SharedPreferenceUtils.java
+│                   │               │   └── properties
+│                   │               │       ├── SharedProperties.java
+│                   │               │       └── SharedPropertiesParser.java
+│                   │               ├── shell
+│                   │               │   ├── ArgumentTokenizer.java
+│                   │               │   ├── ShellUtils.java
+│                   │               │   ├── StreamGobbler.java
+│                   │               │   ├── am
+│                   │               │   │   ├── AmSocketServer.java
+│                   │               │   │   ├── AmSocketServerErrno.java
+│                   │               │   │   └── AmSocketServerRunConfig.java
+│                   │               │   └── command
+│                   │               │       ├── ExecutionCommand.java
+│                   │               │       ├── ShellCommandConstants.java
+│                   │               │       ├── environment
+│                   │               │       │   ├── AndroidShellEnvironment.java
+│                   │               │       │   ├── IShellEnvironment.java
+│                   │               │       │   ├── ShellCommandShellEnvironment.java
+│                   │               │       │   ├── ShellEnvironmentUtils.java
+│                   │               │       │   ├── ShellEnvironmentVariable.java
+│                   │               │       │   └── UnixShellEnvironment.java
+│                   │               │       ├── result
+│                   │               │       │   ├── ResultConfig.java
+│                   │               │       │   ├── ResultData.java
+│                   │               │       │   ├── ResultSender.java
+│                   │               │       │   └── ResultSenderErrno.java
+│                   │               │       └── runner
+│                   │               │           └── app
+│                   │               │               └── AppShell.java
+│                   │               ├── termux
+│                   │               │   ├── TermuxBootstrap.java
+│                   │               │   ├── TermuxConstants.java
+│                   │               │   ├── TermuxUtils.java
+│                   │               │   ├── crash
+│                   │               │   │   └── TermuxCrashUtils.java
+│                   │               │   ├── data
+│                   │               │   │   └── TermuxUrlUtils.java
+│                   │               │   ├── extrakeys
+│                   │               │   │   ├── ExtraKeyButton.java
+│                   │               │   │   ├── ExtraKeysConstants.java
+│                   │               │   │   ├── ExtraKeysInfo.java
+│                   │               │   │   ├── ExtraKeysView.java
+│                   │               │   │   ├── SpecialButton.java
+│                   │               │   │   └── SpecialButtonState.java
+│                   │               │   ├── file
+│                   │               │   │   └── TermuxFileUtils.java
+│                   │               │   ├── interact
+│                   │               │   │   └── TextInputDialogUtils.java
+│                   │               │   ├── models
+│                   │               │   │   └── UserAction.java
+│                   │               │   ├── notification
+│                   │               │   │   └── TermuxNotificationUtils.java
+│                   │               │   ├── plugins
+│                   │               │   │   └── TermuxPluginUtils.java
+│                   │               │   ├── settings
+│                   │               │   │   ├── preferences
+│                   │               │   │   │   ├── TermuxAPIAppSharedPreferences.java
+│                   │               │   │   │   ├── TermuxAppSharedPreferences.java
+│                   │               │   │   │   ├── TermuxBootAppSharedPreferences.java
+│                   │               │   │   │   ├── TermuxFloatAppSharedPreferences.java
+│                   │               │   │   │   ├── TermuxPreferenceConstants.java
+│                   │               │   │   │   ├── TermuxStylingAppSharedPreferences.java
+│                   │               │   │   │   ├── TermuxTaskerAppSharedPreferences.java
+│                   │               │   │   │   └── TermuxWidgetAppSharedPreferences.java
+│                   │               │   │   └── properties
+│                   │               │   │       ├── TermuxAppSharedProperties.java
+│                   │               │   │       ├── TermuxPropertyConstants.java
+│                   │               │   │       └── TermuxSharedProperties.java
+│                   │               │   ├── shell
+│                   │               │   │   ├── TermuxShellManager.java
+│                   │               │   │   ├── TermuxShellUtils.java
+│                   │               │   │   ├── am
+│                   │               │   │   │   └── TermuxAmSocketServer.java
+│                   │               │   │   └── command
+│                   │               │   │       ├── environment
+│                   │               │   │       │   ├── TermuxAPIShellEnvironment.java
+│                   │               │   │       │   ├── TermuxAppShellEnvironment.java
+│                   │               │   │       │   ├── TermuxShellCommandShellEnvironment.java
+│                   │               │   │       │   └── TermuxShellEnvironment.java
+│                   │               │   │       └── runner
+│                   │               │   │           └── terminal
+│                   │               │   │               └── TermuxSession.java
+│                   │               │   ├── terminal
+│                   │               │   │   ├── TermuxTerminalSessionClientBase.java
+│                   │               │   │   ├── TermuxTerminalViewClientBase.java
+│                   │               │   │   └── io
+│                   │               │   │       ├── BellHandler.java
+│                   │               │   │       └── TerminalExtraKeys.java
+│                   │               │   └── theme
+│                   │               │       └── TermuxThemeUtils.java
+│                   │               ├── theme
+│                   │               │   ├── NightMode.java
+│                   │               │   └── ThemeUtils.java
+│                   │               └── view
+│                   │                   ├── KeyboardUtils.java
+│                   │                   └── ViewUtils.java
+│                   └── res
+│                       ├── drawable
+│                       │   ├── ic_copy.xml
+│                       │   ├── ic_error_notification.xml
+│                       │   ├── ic_info.xml
+│                       │   ├── ic_settings.xml
+│                       │   └── ic_share.xml
+│                       ├── layout
+│                       │   ├── activity_report.xml
+│                       │   ├── activity_text_io.xml
+│                       │   ├── dialog_show_message.xml
+│                       │   ├── markdown_adapter_node_code_block.xml
+│                       │   ├── markdown_adapter_node_default.xml
+│                       │   └── partial_primary_toolbar.xml
+│                       ├── menu
+│                       │   ├── menu_report.xml
+│                       │   └── menu_text_io.xml
+│                       ├── raw
+│                       │   ├── apt_info_script.sh
+│                       │   ├── bell.ogg
+│                       │   └── keep.xml
+│                       ├── values
+│                       │   ├── attrs.xml
+│                       │   ├── colors.xml
+│                       │   ├── dimens.xml
+│                       │   ├── strings.xml
+│                       │   ├── styles.xml
+│                       │   └── themes.xml
+│                       └── values-night
+│                           └── themes.xml
+├── tools
+│   ├── electron
+│   │   ├── node_modules
+│   │   │   ├── .bin
+│   │   │   │   ├── electron
+│   │   │   │   ├── extract-zip
+│   │   │   │   ├── install-electron
+│   │   │   │   └── semver
+│   │   │   ├── .package-lock.json
+│   │   │   ├── @electron
+│   │   │   │   └── get
+│   │   │   │       ├── LICENSE
+│   │   │   │       ├── README.md
+│   │   │   │       ├── dist
+│   │   │   │       │   ├── Cache.d.ts
+│   │   │   │       │   ├── Cache.js
+│   │   │   │       │   ├── Cache.js.map
+│   │   │   │       │   ├── Downloader.d.ts
+│   │   │   │       │   ├── Downloader.js
+│   │   │   │       │   ├── Downloader.js.map
+│   │   │   │       │   ├── FetchDownloader.d.ts
+│   │   │   │       │   ├── FetchDownloader.js
+│   │   │   │       │   ├── FetchDownloader.js.map
+│   │   │   │       │   ├── artifact-utils.d.ts
+│   │   │   │       │   ├── artifact-utils.js
+│   │   │   │       │   ├── artifact-utils.js.map
+│   │   │   │       │   ├── downloader-resolver.d.ts
+│   │   │   │       │   ├── downloader-resolver.js
+│   │   │   │       │   ├── downloader-resolver.js.map
+│   │   │   │       │   ├── index.d.ts
+│   │   │   │       │   ├── index.js
+│   │   │   │       │   ├── index.js.map
+│   │   │   │       │   ├── proxy.d.ts
+│   │   │   │       │   ├── proxy.js
+│   │   │   │       │   ├── proxy.js.map
+│   │   │   │       │   ├── types.d.ts
+│   │   │   │       │   ├── types.js
+│   │   │   │       │   ├── types.js.map
+│   │   │   │       │   ├── utils.d.ts
+│   │   │   │       │   ├── utils.js
+│   │   │   │       │   └── utils.js.map
+│   │   │   │       └── package.json
+│   │   │   ├── @types
+│   │   │   │   ├── node
+│   │   │   │   │   ├── LICENSE
+│   │   │   │   │   ├── README.md
+│   │   │   │   │   ├── assert
+│   │   │   │   │   │   └── strict.d.ts
+│   │   │   │   │   ├── assert.d.ts
+│   │   │   │   │   ├── async_hooks.d.ts
+│   │   │   │   │   ├── buffer.buffer.d.ts
+│   │   │   │   │   ├── buffer.d.ts
+│   │   │   │   │   ├── child_process.d.ts
+│   │   │   │   │   ├── cluster.d.ts
+│   │   │   │   │   ├── compatibility
+│   │   │   │   │   │   └── iterators.d.ts
+│   │   │   │   │   ├── console.d.ts
+│   │   │   │   │   ├── constants.d.ts
+│   │   │   │   │   ├── crypto.d.ts
+│   │   │   │   │   ├── dgram.d.ts
+│   │   │   │   │   ├── diagnostics_channel.d.ts
+│   │   │   │   │   ├── dns
+│   │   │   │   │   │   └── promises.d.ts
+│   │   │   │   │   ├── dns.d.ts
+│   │   │   │   │   ├── domain.d.ts
+│   │   │   │   │   ├── events.d.ts
+│   │   │   │   │   ├── fs
+│   │   │   │   │   │   └── promises.d.ts
+│   │   │   │   │   ├── fs.d.ts
+│   │   │   │   │   ├── globals.d.ts
+│   │   │   │   │   ├── globals.typedarray.d.ts
+│   │   │   │   │   ├── http.d.ts
+│   │   │   │   │   ├── http2.d.ts
+│   │   │   │   │   ├── https.d.ts
+│   │   │   │   │   ├── index.d.ts
+│   │   │   │   │   ├── inspector.d.ts
+│   │   │   │   │   ├── inspector.generated.d.ts
+│   │   │   │   │   ├── module.d.ts
+│   │   │   │   │   ├── net.d.ts
+│   │   │   │   │   ├── os.d.ts
+│   │   │   │   │   ├── package.json
+│   │   │   │   │   ├── path.d.ts
+│   │   │   │   │   ├── perf_hooks.d.ts
+│   │   │   │   │   ├── process.d.ts
+│   │   │   │   │   ├── punycode.d.ts
+│   │   │   │   │   ├── querystring.d.ts
+│   │   │   │   │   ├── readline
+│   │   │   │   │   │   └── promises.d.ts
+│   │   │   │   │   ├── readline.d.ts
+│   │   │   │   │   ├── repl.d.ts
+│   │   │   │   │   ├── sea.d.ts
+│   │   │   │   │   ├── sqlite.d.ts
+│   │   │   │   │   ├── stream
+│   │   │   │   │   │   ├── consumers.d.ts
+│   │   │   │   │   │   ├── promises.d.ts
+│   │   │   │   │   │   └── web.d.ts
+│   │   │   │   │   ├── stream.d.ts
+│   │   │   │   │   ├── string_decoder.d.ts
+│   │   │   │   │   ├── test.d.ts
+│   │   │   │   │   ├── timers
+│   │   │   │   │   │   └── promises.d.ts
+│   │   │   │   │   ├── timers.d.ts
+│   │   │   │   │   ├── tls.d.ts
+│   │   │   │   │   ├── trace_events.d.ts
+│   │   │   │   │   ├── ts5.6
+│   │   │   │   │   │   ├── buffer.buffer.d.ts
+│   │   │   │   │   │   ├── compatibility
+│   │   │   │   │   │   │   └── float16array.d.ts
+│   │   │   │   │   │   ├── globals.typedarray.d.ts
+│   │   │   │   │   │   └── index.d.ts
+│   │   │   │   │   ├── ts5.7
+│   │   │   │   │   │   ├── compatibility
+│   │   │   │   │   │   │   └── float16array.d.ts
+│   │   │   │   │   │   └── index.d.ts
+│   │   │   │   │   ├── tty.d.ts
+│   │   │   │   │   ├── url.d.ts
+│   │   │   │   │   ├── util.d.ts
+│   │   │   │   │   ├── v8.d.ts
+│   │   │   │   │   ├── vm.d.ts
+│   │   │   │   │   ├── wasi.d.ts
+│   │   │   │   │   ├── web-globals
+│   │   │   │   │   │   ├── abortcontroller.d.ts
+│   │   │   │   │   │   ├── crypto.d.ts
+│   │   │   │   │   │   ├── domexception.d.ts
+│   │   │   │   │   │   ├── events.d.ts
+│   │   │   │   │   │   ├── fetch.d.ts
+│   │   │   │   │   │   ├── navigator.d.ts
+│   │   │   │   │   │   ├── storage.d.ts
+│   │   │   │   │   │   └── streams.d.ts
+│   │   │   │   │   ├── worker_threads.d.ts
+│   │   │   │   │   └── zlib.d.ts
+│   │   │   │   └── yauzl
+│   │   │   │       ├── LICENSE
+│   │   │   │       ├── README.md
+│   │   │   │       ├── index.d.ts
+│   │   │   │       └── package.json
+│   │   │   ├── buffer-crc32
+│   │   │   │   ├── LICENSE
+│   │   │   │   ├── README.md
+│   │   │   │   ├── index.js
+│   │   │   │   └── package.json
+│   │   │   ├── debug
+│   │   │   │   ├── LICENSE
+│   │   │   │   ├── README.md
+│   │   │   │   ├── package.json
+│   │   │   │   └── src
+│   │   │   │       ├── browser.js
+│   │   │   │       ├── common.js
+│   │   │   │       ├── index.js
+│   │   │   │       └── node.js
+│   │   │   ├── electron
+│   │   │   │   ├── LICENSE
+│   │   │   │   ├── README.md
+│   │   │   │   ├── abi_version
+│   │   │   │   ├── checksums.json
+│   │   │   │   ├── cli.js
+│   │   │   │   ├── electron.d.ts
+│   │   │   │   ├── index.js
+│   │   │   │   ├── install.js
+│   │   │   │   └── package.json
+│   │   │   ├── end-of-stream
+│   │   │   │   ├── LICENSE
+│   │   │   │   ├── README.md
+│   │   │   │   ├── index.js
+│   │   │   │   └── package.json
+│   │   │   ├── env-paths
+│   │   │   │   ├── index.d.ts
+│   │   │   │   ├── index.js
+│   │   │   │   ├── license
+│   │   │   │   ├── package.json
+│   │   │   │   └── readme.md
+│   │   │   ├── extract-zip
+│   │   │   │   ├── LICENSE
+│   │   │   │   ├── cli.js
+│   │   │   │   ├── index.d.ts
+│   │   │   │   ├── index.js
+│   │   │   │   ├── package.json
+│   │   │   │   └── readme.md
+│   │   │   ├── fd-slicer
+│   │   │   │   ├── .npmignore
+│   │   │   │   ├── .travis.yml
+│   │   │   │   ├── CHANGELOG.md
+│   │   │   │   ├── LICENSE
+│   │   │   │   ├── README.md
+│   │   │   │   ├── index.js
+│   │   │   │   ├── package.json
+│   │   │   │   └── test
+│   │   │   │       └── test.js
+│   │   │   ├── get-stream
+│   │   │   │   ├── buffer-stream.js
+│   │   │   │   ├── index.d.ts
+│   │   │   │   ├── index.js
+│   │   │   │   ├── license
+│   │   │   │   ├── package.json
+│   │   │   │   └── readme.md
+│   │   │   ├── graceful-fs
+│   │   │   │   ├── LICENSE
+│   │   │   │   ├── README.md
+│   │   │   │   ├── clone.js
+│   │   │   │   ├── graceful-fs.js
+│   │   │   │   ├── legacy-streams.js
+│   │   │   │   ├── package.json
+│   │   │   │   └── polyfills.js
+│   │   │   ├── ms
+│   │   │   │   ├── index.js
+│   │   │   │   ├── license.md
+│   │   │   │   ├── package.json
+│   │   │   │   └── readme.md
+│   │   │   ├── once
+│   │   │   │   ├── LICENSE
+│   │   │   │   ├── README.md
+│   │   │   │   ├── once.js
+│   │   │   │   └── package.json
+│   │   │   ├── pend
+│   │   │   │   ├── LICENSE
+│   │   │   │   ├── README.md
+│   │   │   │   ├── index.js
+│   │   │   │   ├── package.json
+│   │   │   │   └── test.js
+│   │   │   ├── progress
+│   │   │   │   ├── CHANGELOG.md
+│   │   │   │   ├── LICENSE
+│   │   │   │   ├── Makefile
+│   │   │   │   ├── Readme.md
+│   │   │   │   ├── index.js
+│   │   │   │   ├── lib
+│   │   │   │   │   └── node-progress.js
+│   │   │   │   └── package.json
+│   │   │   ├── pump
+│   │   │   │   ├── .github
+│   │   │   │   │   └── FUNDING.yml
+│   │   │   │   ├── .travis.yml
+│   │   │   │   ├── LICENSE
+│   │   │   │   ├── README.md
+│   │   │   │   ├── SECURITY.md
+│   │   │   │   ├── empty.js
+│   │   │   │   ├── index.js
+│   │   │   │   ├── package.json
+│   │   │   │   ├── test-browser.js
+│   │   │   │   └── test-node.js
+│   │   │   ├── semver
+│   │   │   │   ├── LICENSE
+│   │   │   │   ├── README.md
+│   │   │   │   ├── bin
+│   │   │   │   │   └── semver.js
+│   │   │   │   ├── classes
+│   │   │   │   │   ├── comparator.js
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   ├── range.js
+│   │   │   │   │   └── semver.js
+│   │   │   │   ├── functions
+│   │   │   │   │   ├── clean.js
+│   │   │   │   │   ├── cmp.js
+│   │   │   │   │   ├── coerce.js
+│   │   │   │   │   ├── compare-build.js
+│   │   │   │   │   ├── compare-loose.js
+│   │   │   │   │   ├── compare.js
+│   │   │   │   │   ├── diff.js
+│   │   │   │   │   ├── eq.js
+│   │   │   │   │   ├── gt.js
+│   │   │   │   │   ├── gte.js
+│   │   │   │   │   ├── inc.js
+│   │   │   │   │   ├── lt.js
+│   │   │   │   │   ├── lte.js
+│   │   │   │   │   ├── major.js
+│   │   │   │   │   ├── minor.js
+│   │   │   │   │   ├── neq.js
+│   │   │   │   │   ├── parse.js
+│   │   │   │   │   ├── patch.js
+│   │   │   │   │   ├── prerelease.js
+│   │   │   │   │   ├── rcompare.js
+│   │   │   │   │   ├── rsort.js
+│   │   │   │   │   ├── satisfies.js
+│   │   │   │   │   ├── sort.js
+│   │   │   │   │   ├── truncate.js
+│   │   │   │   │   └── valid.js
+│   │   │   │   ├── index.js
+│   │   │   │   ├── internal
+│   │   │   │   │   ├── constants.js
+│   │   │   │   │   ├── debug.js
+│   │   │   │   │   ├── identifiers.js
+│   │   │   │   │   ├── lrucache.js
+│   │   │   │   │   ├── parse-options.js
+│   │   │   │   │   └── re.js
+│   │   │   │   ├── package.json
+│   │   │   │   ├── preload.js
+│   │   │   │   ├── range.bnf
+│   │   │   │   └── ranges
+│   │   │   │       ├── gtr.js
+│   │   │   │       ├── intersects.js
+│   │   │   │       ├── ltr.js
+│   │   │   │       ├── max-satisfying.js
+│   │   │   │       ├── min-satisfying.js
+│   │   │   │       ├── min-version.js
+│   │   │   │       ├── outside.js
+│   │   │   │       ├── simplify.js
+│   │   │   │       ├── subset.js
+│   │   │   │       ├── to-comparators.js
+│   │   │   │       └── valid.js
+│   │   │   ├── sumchecker
+│   │   │   │   ├── .github
+│   │   │   │   │   ├── FUNDING.yml
+│   │   │   │   │   └── workflows
+│   │   │   │   │       └── ci.yml
+│   │   │   │   ├── LICENSE
+│   │   │   │   ├── NEWS.md
+│   │   │   │   ├── README.md
+│   │   │   │   ├── index.d.ts
+│   │   │   │   ├── index.js
+│   │   │   │   ├── index.test-d.ts
+│   │   │   │   ├── package.json
+│   │   │   │   └── yarn.lock
+│   │   │   ├── undici
+│   │   │   │   ├── LICENSE
+│   │   │   │   ├── README.md
+│   │   │   │   ├── docs
+│   │   │   │   │   └── docs
+│   │   │   │   │       ├── api
+│   │   │   │   │       │   ├── Agent.md
+│   │   │   │   │       │   ├── BalancedPool.md
+│   │   │   │   │       │   ├── CacheStorage.md
+│   │   │   │   │       │   ├── CacheStore.md
+│   │   │   │   │       │   ├── Client.md
+│   │   │   │   │       │   ├── ClientStats.md
+│   │   │   │   │       │   ├── Connector.md
+│   │   │   │   │       │   ├── ContentType.md
+│   │   │   │   │       │   ├── Cookies.md
+│   │   │   │   │       │   ├── Debug.md
+│   │   │   │   │       │   ├── DiagnosticsChannel.md
+│   │   │   │   │       │   ├── Dispatcher.md
+│   │   │   │   │       │   ├── EnvHttpProxyAgent.md
+│   │   │   │   │       │   ├── Errors.md
+│   │   │   │   │       │   ├── EventSource.md
+│   │   │   │   │       │   ├── Fetch.md
+│   │   │   │   │       │   ├── GlobalInstallation.md
+│   │   │   │   │       │   ├── H2CClient.md
+│   │   │   │   │       │   ├── MockAgent.md
+│   │   │   │   │       │   ├── MockCallHistory.md
+│   │   │   │   │       │   ├── MockCallHistoryLog.md
+│   │   │   │   │       │   ├── MockClient.md
+│   │   │   │   │       │   ├── MockErrors.md
+│   │   │   │   │       │   ├── MockPool.md
+│   │   │   │   │       │   ├── Pool.md
+│   │   │   │   │       │   ├── PoolStats.md
+│   │   │   │   │       │   ├── ProxyAgent.md
+│   │   │   │   │       │   ├── RedirectHandler.md
+│   │   │   │   │       │   ├── RetryAgent.md
+│   │   │   │   │       │   ├── RetryHandler.md
+│   │   │   │   │       │   ├── RoundRobinPool.md
+│   │   │   │   │       │   ├── SnapshotAgent.md
+│   │   │   │   │       │   ├── Socks5ProxyAgent.md
+│   │   │   │   │       │   ├── Util.md
+│   │   │   │   │       │   ├── WebSocket.md
+│   │   │   │   │       │   └── api-lifecycle.md
+│   │   │   │   │       └── best-practices
+│   │   │   │   │           ├── client-certificate.md
+│   │   │   │   │           ├── crawling.md
+│   │   │   │   │           ├── mocking-request.md
+│   │   │   │   │           ├── proxy.md
+│   │   │   │   │           ├── undici-vs-builtin-fetch.md
+│   │   │   │   │           └── writing-tests.md
+│   │   │   │   ├── index-fetch.js
+│   │   │   │   ├── index.d.ts
+│   │   │   │   ├── index.js
+│   │   │   │   ├── lib
+│   │   │   │   │   ├── api
+│   │   │   │   │   │   ├── abort-signal.js
+│   │   │   │   │   │   ├── api-connect.js
+│   │   │   │   │   │   ├── api-pipeline.js
+│   │   │   │   │   │   ├── api-request.js
+│   │   │   │   │   │   ├── api-stream.js
+│   │   │   │   │   │   ├── api-upgrade.js
+│   │   │   │   │   │   ├── index.js
+│   │   │   │   │   │   └── readable.js
+│   │   │   │   │   ├── cache
+│   │   │   │   │   │   ├── memory-cache-store.js
+│   │   │   │   │   │   └── sqlite-cache-store.js
+│   │   │   │   │   ├── core
+│   │   │   │   │   │   ├── connect.js
+│   │   │   │   │   │   ├── constants.js
+│   │   │   │   │   │   ├── diagnostics.js
+│   │   │   │   │   │   ├── errors.js
+│   │   │   │   │   │   ├── request.js
+│   │   │   │   │   │   ├── socks5-client.js
+│   │   │   │   │   │   ├── socks5-utils.js
+│   │   │   │   │   │   ├── symbols.js
+│   │   │   │   │   │   ├── tree.js
+│   │   │   │   │   │   └── util.js
+│   │   │   │   │   ├── dispatcher
+│   │   │   │   │   │   ├── agent.js
+│   │   │   │   │   │   ├── balanced-pool.js
+│   │   │   │   │   │   ├── client-h1.js
+│   │   │   │   │   │   ├── client-h2.js
+│   │   │   │   │   │   ├── client.js
+│   │   │   │   │   │   ├── dispatcher-base.js
+│   │   │   │   │   │   ├── dispatcher.js
+│   │   │   │   │   │   ├── env-http-proxy-agent.js
+│   │   │   │   │   │   ├── fixed-queue.js
+│   │   │   │   │   │   ├── h2c-client.js
+│   │   │   │   │   │   ├── pool-base.js
+│   │   │   │   │   │   ├── pool.js
+│   │   │   │   │   │   ├── proxy-agent.js
+│   │   │   │   │   │   ├── retry-agent.js
+│   │   │   │   │   │   ├── round-robin-pool.js
+│   │   │   │   │   │   └── socks5-proxy-agent.js
+│   │   │   │   │   ├── encoding
+│   │   │   │   │   │   └── index.js
+│   │   │   │   │   ├── global.js
+│   │   │   │   │   ├── handler
+│   │   │   │   │   │   ├── cache-handler.js
+│   │   │   │   │   │   ├── cache-revalidation-handler.js
+│   │   │   │   │   │   ├── decorator-handler.js
+│   │   │   │   │   │   ├── deduplication-handler.js
+│   │   │   │   │   │   ├── redirect-handler.js
+│   │   │   │   │   │   ├── retry-handler.js
+│   │   │   │   │   │   ├── unwrap-handler.js
+│   │   │   │   │   │   └── wrap-handler.js
+│   │   │   │   │   ├── interceptor
+│   │   │   │   │   │   ├── cache.js
+│   │   │   │   │   │   ├── decompress.js
+│   │   │   │   │   │   ├── deduplicate.js
+│   │   │   │   │   │   ├── dns.js
+│   │   │   │   │   │   ├── dump.js
+│   │   │   │   │   │   ├── redirect.js
+│   │   │   │   │   │   ├── response-error.js
+│   │   │   │   │   │   └── retry.js
+│   │   │   │   │   ├── llhttp
+│   │   │   │   │   │   ├── .gitkeep
+│   │   │   │   │   │   ├── constants.d.ts
+│   │   │   │   │   │   ├── constants.js
+│   │   │   │   │   │   ├── llhttp-wasm.js
+│   │   │   │   │   │   ├── llhttp_simd-wasm.js
+│   │   │   │   │   │   ├── utils.d.ts
+│   │   │   │   │   │   └── utils.js
+│   │   │   │   │   ├── mock
+│   │   │   │   │   │   ├── mock-agent.js
+│   │   │   │   │   │   ├── mock-call-history.js
+│   │   │   │   │   │   ├── mock-client.js
+│   │   │   │   │   │   ├── mock-errors.js
+│   │   │   │   │   │   ├── mock-interceptor.js
+│   │   │   │   │   │   ├── mock-pool.js
+│   │   │   │   │   │   ├── mock-symbols.js
+│   │   │   │   │   │   ├── mock-utils.js
+│   │   │   │   │   │   ├── pending-interceptors-formatter.js
+│   │   │   │   │   │   ├── snapshot-agent.js
+│   │   │   │   │   │   ├── snapshot-recorder.js
+│   │   │   │   │   │   └── snapshot-utils.js
+│   │   │   │   │   ├── util
+│   │   │   │   │   │   ├── cache.js
+│   │   │   │   │   │   ├── date.js
+│   │   │   │   │   │   ├── promise.js
+│   │   │   │   │   │   ├── runtime-features.js
+│   │   │   │   │   │   ├── stats.js
+│   │   │   │   │   │   └── timers.js
+│   │   │   │   │   └── web
+│   │   │   │   │       ├── cache
+│   │   │   │   │       │   ├── cache.js
+│   │   │   │   │       │   ├── cachestorage.js
+│   │   │   │   │       │   └── util.js
+│   │   │   │   │       ├── cookies
+│   │   │   │   │       │   ├── constants.js
+│   │   │   │   │       │   ├── index.js
+│   │   │   │   │       │   ├── parse.js
+│   │   │   │   │       │   └── util.js
+│   │   │   │   │       ├── eventsource
+│   │   │   │   │       │   ├── eventsource-stream.js
+│   │   │   │   │       │   ├── eventsource.js
+│   │   │   │   │       │   └── util.js
+│   │   │   │   │       ├── fetch
+│   │   │   │   │       │   ├── LICENSE
+│   │   │   │   │       │   ├── body.js
+│   │   │   │   │       │   ├── constants.js
+│   │   │   │   │       │   ├── data-url.js
+│   │   │   │   │       │   ├── formdata-parser.js
+│   │   │   │   │       │   ├── formdata.js
+│   │   │   │   │       │   ├── global.js
+│   │   │   │   │       │   ├── headers.js
+│   │   │   │   │       │   ├── index.js
+│   │   │   │   │       │   ├── request.js
+│   │   │   │   │       │   ├── response.js
+│   │   │   │   │       │   └── util.js
+│   │   │   │   │       ├── infra
+│   │   │   │   │       │   └── index.js
+│   │   │   │   │       ├── subresource-integrity
+│   │   │   │   │       │   ├── Readme.md
+│   │   │   │   │       │   └── subresource-integrity.js
+│   │   │   │   │       ├── webidl
+│   │   │   │   │       │   └── index.js
+│   │   │   │   │       └── websocket
+│   │   │   │   │           ├── connection.js
+│   │   │   │   │           ├── constants.js
+│   │   │   │   │           ├── events.js
+│   │   │   │   │           ├── frame.js
+│   │   │   │   │           ├── permessage-deflate.js
+│   │   │   │   │           ├── receiver.js
+│   │   │   │   │           ├── sender.js
+│   │   │   │   │           ├── stream
+│   │   │   │   │           │   ├── websocketerror.js
+│   │   │   │   │           │   └── websocketstream.js
+│   │   │   │   │           ├── util.js
+│   │   │   │   │           └── websocket.js
+│   │   │   │   ├── package.json
+│   │   │   │   ├── scripts
+│   │   │   │   │   └── strip-comments.js
+│   │   │   │   └── types
+│   │   │   │       ├── README.md
+│   │   │   │       ├── agent.d.ts
+│   │   │   │       ├── api.d.ts
+│   │   │   │       ├── balanced-pool.d.ts
+│   │   │   │       ├── cache-interceptor.d.ts
+│   │   │   │       ├── cache.d.ts
+│   │   │   │       ├── client-stats.d.ts
+│   │   │   │       ├── client.d.ts
+│   │   │   │       ├── connector.d.ts
+│   │   │   │       ├── content-type.d.ts
+│   │   │   │       ├── cookies.d.ts
+│   │   │   │       ├── diagnostics-channel.d.ts
+│   │   │   │       ├── dispatcher.d.ts
+│   │   │   │       ├── env-http-proxy-agent.d.ts
+│   │   │   │       ├── errors.d.ts
+│   │   │   │       ├── eventsource.d.ts
+│   │   │   │       ├── fetch.d.ts
+│   │   │   │       ├── formdata.d.ts
+│   │   │   │       ├── global-dispatcher.d.ts
+│   │   │   │       ├── global-origin.d.ts
+│   │   │   │       ├── h2c-client.d.ts
+│   │   │   │       ├── handlers.d.ts
+│   │   │   │       ├── header.d.ts
+│   │   │   │       ├── index.d.ts
+│   │   │   │       ├── interceptors.d.ts
+│   │   │   │       ├── mock-agent.d.ts
+│   │   │   │       ├── mock-call-history.d.ts
+│   │   │   │       ├── mock-client.d.ts
+│   │   │   │       ├── mock-errors.d.ts
+│   │   │   │       ├── mock-interceptor.d.ts
+│   │   │   │       ├── mock-pool.d.ts
+│   │   │   │       ├── patch.d.ts
+│   │   │   │       ├── pool-stats.d.ts
+│   │   │   │       ├── pool.d.ts
+│   │   │   │       ├── proxy-agent.d.ts
+│   │   │   │       ├── readable.d.ts
+│   │   │   │       ├── retry-agent.d.ts
+│   │   │   │       ├── retry-handler.d.ts
+│   │   │   │       ├── round-robin-pool.d.ts
+│   │   │   │       ├── snapshot-agent.d.ts
+│   │   │   │       ├── socks5-proxy-agent.d.ts
+│   │   │   │       ├── util.d.ts
+│   │   │   │       ├── utility.d.ts
+│   │   │   │       ├── webidl.d.ts
+│   │   │   │       └── websocket.d.ts
+│   │   │   ├── undici-types
+│   │   │   │   ├── LICENSE
+│   │   │   │   ├── README.md
+│   │   │   │   ├── agent.d.ts
+│   │   │   │   ├── api.d.ts
+│   │   │   │   ├── balanced-pool.d.ts
+│   │   │   │   ├── cache-interceptor.d.ts
+│   │   │   │   ├── cache.d.ts
+│   │   │   │   ├── client-stats.d.ts
+│   │   │   │   ├── client.d.ts
+│   │   │   │   ├── connector.d.ts
+│   │   │   │   ├── content-type.d.ts
+│   │   │   │   ├── cookies.d.ts
+│   │   │   │   ├── diagnostics-channel.d.ts
+│   │   │   │   ├── dispatcher.d.ts
+│   │   │   │   ├── env-http-proxy-agent.d.ts
+│   │   │   │   ├── errors.d.ts
+│   │   │   │   ├── eventsource.d.ts
+│   │   │   │   ├── fetch.d.ts
+│   │   │   │   ├── formdata.d.ts
+│   │   │   │   ├── global-dispatcher.d.ts
+│   │   │   │   ├── global-origin.d.ts
+│   │   │   │   ├── h2c-client.d.ts
+│   │   │   │   ├── handlers.d.ts
+│   │   │   │   ├── header.d.ts
+│   │   │   │   ├── index.d.ts
+│   │   │   │   ├── interceptors.d.ts
+│   │   │   │   ├── mock-agent.d.ts
+│   │   │   │   ├── mock-call-history.d.ts
+│   │   │   │   ├── mock-client.d.ts
+│   │   │   │   ├── mock-errors.d.ts
+│   │   │   │   ├── mock-interceptor.d.ts
+│   │   │   │   ├── mock-pool.d.ts
+│   │   │   │   ├── package.json
+│   │   │   │   ├── patch.d.ts
+│   │   │   │   ├── pool-stats.d.ts
+│   │   │   │   ├── pool.d.ts
+│   │   │   │   ├── proxy-agent.d.ts
+│   │   │   │   ├── readable.d.ts
+│   │   │   │   ├── retry-agent.d.ts
+│   │   │   │   ├── retry-handler.d.ts
+│   │   │   │   ├── snapshot-agent.d.ts
+│   │   │   │   ├── util.d.ts
+│   │   │   │   ├── utility.d.ts
+│   │   │   │   ├── webidl.d.ts
+│   │   │   │   └── websocket.d.ts
+│   │   │   ├── wrappy
+│   │   │   │   ├── LICENSE
+│   │   │   │   ├── README.md
+│   │   │   │   ├── package.json
+│   │   │   │   └── wrappy.js
+│   │   │   └── yauzl
+│   │   │       ├── LICENSE
+│   │   │       ├── README.md
+│   │   │       ├── index.js
+│   │   │       └── package.json
+│   │   ├── package-lock.json
+│   │   └── package.json
+│   ├── python-client
+│   │   └── client.py
+│   └── web-dashboard
+│       └── index.html
+└── web
+    ├── console
+    │   └── index.html
+    ├── console2
+    │   └── index.html
+    ├── dashboard
+    │   └── index.html
+    ├── installer
+    │   ├── index.html
+    │   └── install.sh
+    └── registry
+        └── index.html
+
+306 directories, 1409 files
