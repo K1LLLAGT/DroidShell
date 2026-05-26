@@ -1,36 +1,147 @@
-name: DroidShell CI
+name: DroidShell CI/CD
 
 on:
   push:
     branches: [ main ]
+    tags: [ "v*" ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch:
 
 jobs:
-  build:
+  build-test:
+    name: Build & Test
     runs-on: ubuntu-latest
+
+    env:
+      ANDROID_SDK_ROOT: /opt/android
+      ANDROID_HOME: /opt/android
+      JAVA_VERSION: "17"
+      NODE_VERSION: "20"
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Show version
-        run: echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
-
-      - name: Build dual packages
-        run: |
-          if [ -x scripts/ds-build-dual.sh ]; then
-            ./scripts/ds-build-dual.sh
-          fi
-
-      - name: Build Magisk module
-        run: |
-          if [ -x scripts/build-magisk-droidshell.sh ]; then
-            ./scripts/build-magisk-droidshell.sh
-          fi
-
-      - uses: actions/upload-artifact@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
-          name: droidshell-artifacts-${{ env.VERSION }}
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ env.JAVA_VERSION }}
+
+      - name: Install Android SDK commandline tools
+        run: |
+          sudo mkdir -p $ANDROID_SDK_ROOT
+          sudo chown -R $USER:$USER $ANDROID_SDK_ROOT
+          cd $ANDROID_SDK_ROOT
+
+          curl -sSL https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -o cmdtools.zip
+          mkdir -p cmdline-tools/latest
+          unzip -q cmdtools.zip -d cmdline-tools/latest
+          rm cmdtools.zip
+
+          echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT" >> $GITHUB_ENV
+          echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
+          echo "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin" >> $GITHUB_PATH
+          echo "$ANDROID_SDK_ROOT/platform-tools" >> $GITHUB_PATH
+
+      - name: Accept licenses & install SDK components
+        run: |
+          yes | sdkmanager --licenses
+          sdkmanager \
+            "platform-tools" \
+            "platforms;android-34" \
+            "build-tools;34.0.0" \
+            "cmdline-tools;latest"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y python3 python3-pip python3-venv gradle
+
+      - name: Install Python tooling
+        run: |
+          pip3 install androguard networkx rich fastapi uvicorn
+
+      - name: Install apktool
+        run: |
+          sudo curl -sSL https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -o /usr/local/bin/apktool
+          sudo chmod +x /usr/local/bin/apktool
+          sudo curl -sSL https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.9.3.jar -o /usr/local/bin/apktool.jar
+          sudo chmod +x /usr/local/bin/apktool.jar
+
+      - name: Install Node dependencies
+        run: |
+          if [ -f package-lock.json ] || [ -f package.json ]; then
+            npm ci
+          fi
+
+      - name: Initialize DroidShell workspace
+        run: |
+          chmod +x scripts/ds-*.sh || true
+          mkdir -p droidshell-out release-out sdk-out site workspace
+
+      - name: Run DroidShell build
+        run: |
+          if [ -f scripts/ds-build.sh ]; then
+            bash scripts/ds-build.sh
+          else
+            echo "scripts/ds-build.sh not found, skipping."
+          fi
+
+      - name: Run DroidShell tests
+        run: |
+          if [ -f scripts/ds-test.sh ]; then
+            bash scripts/ds-test.sh
+          else
+            echo "scripts/ds-test.sh not found, skipping."
+          fi
+
+      - name: Upload build artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: droidshell-build
           path: |
-            out/
-            magisk-droidshell/
+            droidshell-out
+            release-out
+            sdk-out
+            site
+          if-no-files-found: ignore
+
+  release:
+    name: Release
+    needs: build-test
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: droidshell-build
+          path: artifacts
+
+      - name: Create release bundle
+        run: |
+          mkdir -p dist
+          tar -czf dist/droidshell-${GITHUB_REF_NAME}.tar.gz -C artifacts .
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: DroidShell ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          files: |
+            dist/droidshell-${{ github.ref_name }}.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
