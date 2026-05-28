@@ -2,9 +2,9 @@
 set -euo pipefail
 
 # droidshell-os-layer-builder.sh
-# Build the full DroidShell OS layer tree with example content.
+# Builds the complete DroidShell OS layer with all required directories,
+# missing files, example plugins, scripts, themes, configs, and placeholders.
 
-# Target roots (external + internal-style)
 PUBLIC_ROOT="${1:-/sdcard/DroidShell}"
 INTERNAL_ROOT="${2:-./DroidShell_internal}"
 
@@ -15,10 +15,11 @@ echo
 
 mkdir -p "$PUBLIC_ROOT" "$INTERNAL_ROOT"
 
-make_tree() {
+build_root() {
   local ROOT="$1"
   echo "-> Provisioning: $ROOT"
 
+  # Required directories
   mkdir -p \
     "$ROOT/bin" \
     "$ROOT/plugins" \
@@ -29,19 +30,19 @@ make_tree() {
     "$ROOT/config" \
     "$ROOT/logs"
 
-  # --- bin ---
+  ########################################
+  # BIN SCRIPTS
+  ########################################
   cat > "$ROOT/bin/droidshell-env.sh" <<'EOF'
 #!/usr/bin/env sh
-# DroidShell environment info
-echo "DroidShell environment:"
-echo "  PWD: $(pwd)"
-echo "  USER: $(whoami 2>/dev/null || echo unknown)"
+echo "DroidShell Environment:"
+echo "PWD: $(pwd)"
+echo "USER: $(whoami 2>/dev/null || echo unknown)"
 EOF
   chmod +x "$ROOT/bin/droidshell-env.sh"
 
   cat > "$ROOT/bin/droidshell-version.sh" <<'EOF'
 #!/usr/bin/env sh
-# DroidShell version stub
 echo "DroidShell OS Layer"
 echo "Version: 0.1.0-dev"
 EOF
@@ -49,7 +50,6 @@ EOF
 
   cat > "$ROOT/bin/droidshell-diagnostics.sh" <<'EOF'
 #!/usr/bin/env sh
-# Basic diagnostics for DroidShell
 echo "=== DroidShell Diagnostics ==="
 echo "Date: $(date 2>/dev/null || echo unknown)"
 echo "Uname: $(uname -a 2>/dev/null || echo unknown)"
@@ -58,8 +58,11 @@ echo "PATH: $PATH"
 EOF
   chmod +x "$ROOT/bin/droidshell-diagnostics.sh"
 
-  # --- plugins/example ---
+  ########################################
+  # PLUGINS
+  ########################################
   mkdir -p "$ROOT/plugins/example"
+
   cat > "$ROOT/plugins/example/manifest.json" <<'EOF'
 {
   "id": "example",
@@ -72,13 +75,14 @@ EOF
 
   cat > "$ROOT/plugins/example/plugin.sh" <<'EOF'
 #!/usr/bin/env sh
-# Example DroidShell plugin
 echo "[Example Plugin] Hello from DroidShell plugin!"
 echo "[Example Plugin] Working directory: $(pwd)"
 EOF
   chmod +x "$ROOT/plugins/example/plugin.sh"
 
-  # --- themes ---
+  ########################################
+  # THEMES
+  ########################################
   cat > "$ROOT/themes/default.json" <<'EOF'
 {
   "name": "Default",
@@ -89,7 +93,9 @@ EOF
 }
 EOF
 
-  # --- scripts ---
+  ########################################
+  # SCRIPTS
+  ########################################
   cat > "$ROOT/scripts/test.sh" <<'EOF'
 #!/usr/bin/env sh
 echo "[DroidShell Test Script]"
@@ -104,7 +110,9 @@ echo "Hello from DroidShell scripts!"
 EOF
   chmod +x "$ROOT/scripts/hello.sh"
 
-  # --- workspace ---
+  ########################################
+  # WORKSPACE
+  ########################################
   cat > "$ROOT/workspace/README.txt" <<'EOF'
 DroidShell workspace
 --------------------
@@ -112,14 +120,18 @@ This directory is intended for user data, temporary files, and
 workspace-specific artifacts created by DroidShell or its plugins.
 EOF
 
-  # --- packages ---
+  ########################################
+  # PACKAGES
+  ########################################
   cat > "$ROOT/packages/README.txt" <<'EOF'
 DroidShell packages
 -------------------
 Reserved for future package/module distribution and installation.
 EOF
 
-  # --- config ---
+  ########################################
+  # CONFIG
+  ########################################
   cat > "$ROOT/config/droidshell.json" <<'EOF'
 {
   "version": "0.1.0",
@@ -160,15 +172,33 @@ EOF
 }
 EOF
 
-  # --- logs ---
+  ########################################
+  # LOGS
+  ########################################
   touch "$ROOT/logs/.gitkeep"
 
   echo "   Done: $ROOT"
   echo
 }
 
-make_tree "$PUBLIC_ROOT"
-make_tree "$INTERNAL_ROOT"
+build_root "$PUBLIC_ROOT"
+build_root "$INTERNAL_ROOT"
 
 echo "=== DroidShell OS layer provisioned ==="
-echo "You can now install and run DroidShell.apk against these roots."
+echo
+echo "NOTE: The following APK resources MUST exist inside your Android project:"
+echo "  - ic_droidshell_bin.xml"
+echo "  - ic_droidshell_plugins.xml"
+echo "  - ic_droidshell_themes.xml"
+echo "  - ic_droidshell_scripts.xml"
+echo "  - ic_droidshell_workspace.xml"
+echo "  - ic_droidshell_packages.xml"
+echo "  - ic_droidshell_config.xml"
+echo "  - ic_droidshell_logs.xml"
+echo "  - ic_folder_default.xml"
+echo
+echo "Also required in res/raw/:"
+echo "  - droidshell_theme.json"
+echo "  - droidshell_icon_map.json"
+echo
+echo "Your DroidShell.apk will now run correctly against this OS layer."
